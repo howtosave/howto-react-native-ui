@@ -1,14 +1,24 @@
+import React from 'react';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Provider as PageProvider, adaptNavigationTheme } from 'react-native-paper';
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Button from './components/Button/Button';
+import theme from './theme';
+import HomeScreen from './pages/home';
+import AboutScreen from './pages/about';
+
+const Stack = createStackNavigator();
+const { LightTheme } = adaptNavigationTheme({ light: DefaultTheme });
 
 export default function Main() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text>Open up App.js to start working on your app~~~</Text>
-      <Button >Button</Button>
-      <StatusBar style="auto" />
-    </View>
+    <PageProvider theme={theme}>
+      <NavigationContainer theme={LightTheme}>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PageProvider>
   );
 }
