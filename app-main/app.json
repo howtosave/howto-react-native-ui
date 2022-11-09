@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "hello-rn",
-    "slug": "hello-rn",
+    "name": "cu_rn_main",
+    "slug": "cu_rn_main",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
