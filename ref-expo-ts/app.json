@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-test",
-    "slug": "app-test",
+    "name": "ref-expo-ts",
+    "slug": "ref-expo-ts",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
