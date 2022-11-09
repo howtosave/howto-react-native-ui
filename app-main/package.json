@@ -1,7 +1,7 @@
 {
   "name": "cu_rn_main",
   "version": "1.0.0",
-  "main": "./web-entry.js",
+  "main": "./AppEntry.js",
   "scripts": {
     "dev": "expo start",
     "android": "expo start --android",
