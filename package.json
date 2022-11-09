@@ -1,0 +1,21 @@
+{
+  "name": "cu-rn-client",
+  "private": true,
+  "repository": "git@peterhs.github.com:peterhs/cu-rn-client.git",
+  "author": "peterhs.kang <peterhs.kang@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "": ""
+  },
+  "devDependencies": {
+    "lerna": "~6.0.3"
+  },
+  "resolutions": {
+    "expo": "~47.0.3",
+    "react": "18.1.0",
+    "react-native": "0.70.5"
+  },
+  "workspaces": [
+    "app-*"
+  ]
+}
