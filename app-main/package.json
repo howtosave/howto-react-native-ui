@@ -1,7 +1,7 @@
 {
   "name": "cu_rn_main",
   "version": "1.0.0",
-  "main": "./AppEntry.js",
+  "main": "./AppEntry.ts",
   "scripts": {
     "dev": "expo start",
     "android": "expo start --android",
@@ -25,9 +25,12 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@expo/webpack-config": "^0.17.3",
+    "@types/react": "~18.0.14",
+    "@types/react-native": "~0.70.6",
     "autoprefixer": "~10.4.12",
     "react-dom": "18.1.0",
-    "react-native-web": "~0.18.10"
+    "react-native-web": "~0.18.10",
+    "typescript": "^4.6.3"
   },
   "private": true
 }
