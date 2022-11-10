@@ -8,7 +8,7 @@ type HomeProps = StackScreenProps<RootStackParamList, 'Home'>;
 
 export default function Home({ navigation }: HomeProps) {
   return (
-    <Layout style={styles.container}>
+    <Layout style={styles.container} navigation={navigation}>
       <Text>HOME</Text>
 
       <Button

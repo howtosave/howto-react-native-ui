@@ -8,7 +8,7 @@ type AboutProps = StackScreenProps<RootStackParamList, 'About'>;
 
 export default function About({ navigation }: AboutProps) {
   return (
-    <Layout style={styles.container}>
+    <Layout style={styles.container} navigation={navigation}>
       <Text>About</Text>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
