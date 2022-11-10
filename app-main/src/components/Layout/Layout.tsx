@@ -1,25 +1,26 @@
 import React from 'react';
 import { View, ViewProps, Platform, StyleSheet } from 'react-native';
 import { Appbar, BottomNavigation, Menu, useTheme } from 'react-native-paper';
-import type { StackNavigationProp } from '@react-navigation/stack';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 interface LayoutProps extends ViewProps {
-  navigation: StackNavigationProp<RootStackParamList>;
+  navigation: NativeStackNavigationProp<any> | BottomTabNavigationProp<any>;
 }
 
 export default function Layout({ navigation, style, children }: LayoutProps) {
-  const { isV3 } = useTheme();
-  const [menuVisible, setMenuVisible] = React.useState(false);
-  const [sceneAnimation, setSceneAnimation] =
-    React.useState<
-      React.ComponentProps<typeof BottomNavigation>['sceneAnimationType']
-    >();
+  // const { isV3 } = useTheme();
+  // const [menuVisible, setMenuVisible] = React.useState(false);
+  // const [sceneAnimation, setSceneAnimation] =
+  //   React.useState<
+  //     React.ComponentProps<typeof BottomNavigation>['sceneAnimationType']
+  //   >();
 
   return (
     <React.Fragment>
-      <Appbar.Header elevated>
+      {/* <Appbar.Header elevated>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Appbar.Content title="Bottom Navigation" />
         <Menu
@@ -58,7 +59,7 @@ export default function Layout({ navigation, style, children }: LayoutProps) {
             title="Scene animation: opacity"
           />
         </Menu>
-      </Appbar.Header>
+      </Appbar.Header> */}
 
     <View style={style}>
       {children}

@@ -16,7 +16,7 @@ export const RootNavigator = () => {
   return (
     <NavigationContainer theme={navigationTheme}>
       <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-        <Drawer.Screen name="Home" component={StackNavigator} />
+        <Drawer.Screen name="Home" component={StackNavigator} options={{ headerShown: false }} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import type { StackScreenProps } from '@react-navigation/stack';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout/Layout';
 
-type AboutProps = WithTranslation<'pageAbout'> & StackScreenProps<RootStackParamList, 'About'>;
+const I18nName = 'pageAbout';
+const PageId = 'About';
+type AboutProps = WithTranslation<typeof I18nName> & NativeStackScreenProps<PageParamRootStack, typeof PageId>;
 
 function About({ navigation, t }: AboutProps) {
   return (
@@ -26,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTranslation('pageAbout')(About);
+export default withTranslation(I18nName)(About);

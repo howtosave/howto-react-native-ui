@@ -8,6 +8,10 @@ License: MIT License
 Demo: –
 Type of support: Community support via GitHub issues
 
+- icon search on paper: https://callstack.github.io/react-native-paper/icons.html
+- icon search: https://oblador.github.io/react-native-vector-icons/
+
+
 ## React Native Elements
 Web-site: https://react-native-elements.github.io/react-native-elements/
 GitHub stars: 22.2k

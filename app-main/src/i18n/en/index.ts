@@ -4,7 +4,7 @@ import pageAbout from './page-about.json';
 import pageLogin from './page-login.json';
 import pageLogout from './page-logout.json';
 import pageUserProfile from './page-user-profile.json';
-import pageBlog from './page-blog.json';
+import pageSales from './page-sales.json';
 import pageSignUp from './page-signup.json';
 
 export {
@@ -14,6 +14,6 @@ export {
   pageLogin,
   pageLogout,
   pageUserProfile,
-  pageBlog,
+  pageSales,
   pageSignUp,
 };

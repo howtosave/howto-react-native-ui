@@ -1,5 +1,9 @@
 {
   "title": "Hydrogen",
   "main-title": "Welcome to",
-  "go-to-about": "Go to About"
+  "welcome-message": "All-in-One Management",
+  "go-to-store-tab": "Store Management",
+  "go-to-stock-tab": "Stock Management",
+  "go-to-sales-tab": "Go to Sales Management",
+  "go-to-settings": "Go to Settings"
 }

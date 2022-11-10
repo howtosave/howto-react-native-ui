@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+///import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { Provider as PageProvider, adaptNavigationTheme } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -13,9 +13,18 @@ import { StoreProvider, I18nProvider } from './redux';
 import theme from './theme';
 import HomeScreen from './pages/home';
 import AboutScreen from './pages/about';
+import SalesStatus from './pages/sales-mgmt/sales-status';
+import SalesStats from './pages/sales-mgmt/sales-stats';
 
+const SalesTab = createBottomTabNavigator<PageParamSales>();
+const SalesTabScreen = () => (
+  <SalesTab.Navigator screenOptions={{ headerShown: false }}>
+    <SalesTab.Screen name="SalesStatus" component={SalesStatus} />
+    <SalesTab.Screen name="SalesStats" component={SalesStats} />
+  </SalesTab.Navigator>
+);
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<PageParamRootStack>();
 const { LightTheme } = adaptNavigationTheme({ light: DefaultTheme });
 
 export default function Main() {
@@ -26,7 +35,8 @@ export default function Main() {
           <SafeAreaProvider>
             <NavigationContainer theme={LightTheme}>
               <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+                <Stack.Screen name="SalesTab" component={SalesTabScreen} />
                 <Stack.Screen name="About" component={AboutScreen} />
               </Stack.Navigator>
               <StatusBar style={!theme.dark ? 'dark' : 'light'} />
