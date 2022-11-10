@@ -5,7 +5,7 @@
   "author": "peterhs.kang <peterhs.kang@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "": ""
+    "dev": "expo start ./ref-expo-ts --android"
   },
   "devDependencies": {
     "lerna": "~6.0.3"
