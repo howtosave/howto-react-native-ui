@@ -1,28 +1,15 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-///import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { Provider as PageProvider, adaptNavigationTheme } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import type { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { StoreProvider, I18nProvider } from './redux';
 
 import theme from './theme';
 import HomeScreen from './pages/home';
 import AboutScreen from './pages/about';
-import SalesStatus from './pages/sales-mgmt/sales-status';
-import SalesStats from './pages/sales-mgmt/sales-stats';
-
-const SalesTab = createBottomTabNavigator<PageParamSales>();
-const SalesTabScreen = () => (
-  <SalesTab.Navigator screenOptions={{ headerShown: false }}>
-    <SalesTab.Screen name="SalesStatus" component={SalesStatus} />
-    <SalesTab.Screen name="SalesStats" component={SalesStats} />
-  </SalesTab.Navigator>
-);
+import { SalesTabScreen } from './containers/SalesTab';
 
 const Stack = createNativeStackNavigator<PageParamRootStack>();
 const { LightTheme } = adaptNavigationTheme({ light: DefaultTheme });

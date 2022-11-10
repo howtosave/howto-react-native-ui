@@ -8,4 +8,3 @@ type PageParamSales = {
   SalesStatus: undefined;
   SalesStats: undefined;
 };
-

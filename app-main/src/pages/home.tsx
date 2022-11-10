@@ -43,7 +43,7 @@ function Home({ navigation, t }: HomeProps) {
 
       <View style={styles.flexWrapContainer}>
         {(menuItems).map((item) => (
-          <Surface style={styles.flexWrapItem}>
+          <Surface style={styles.flexWrapItem} key={item.labelId}>
             <TouchableRipple style={styles.flexWrapInnerItem}
               rippleColor="rgba(0, 0, 0, .32)"
               onPress={() => navigation.navigate(item.pageId as keyof PageParamRootStack)}
