@@ -1,8 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, Button } from 'react-native';
+import type { StackScreenProps } from '@react-navigation/stack';
+
 import Layout from '../components/Layout/Layout';
 
-export default function Home({ navigation }) {
+type HomeProps = StackScreenProps<RootStackParamList, 'Home'>;
+
+export default function Home({ navigation }: HomeProps) {
   return (
     <Layout style={styles.container}>
       <Text>HOME</Text>

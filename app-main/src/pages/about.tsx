@@ -1,8 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import type { StackScreenProps } from '@react-navigation/stack';
+
 import Layout from '../components/Layout/Layout';
 
-export default function About({ navigation }) {
+type AboutProps = StackScreenProps<RootStackParamList, 'About'>;
+
+export default function About({ navigation }: AboutProps) {
   return (
     <Layout style={styles.container}>
       <Text>About</Text>

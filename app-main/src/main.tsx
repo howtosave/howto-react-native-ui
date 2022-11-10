@@ -7,7 +7,7 @@ import theme from './theme';
 import HomeScreen from './pages/home';
 import AboutScreen from './pages/about';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 const { LightTheme } = adaptNavigationTheme({ light: DefaultTheme });
 
 export default function Main() {
