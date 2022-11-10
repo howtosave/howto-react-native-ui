@@ -1,18 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, Button } from 'react-native';
 import type { StackScreenProps } from '@react-navigation/stack';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout/Layout';
 
-type HomeProps = StackScreenProps<RootStackParamList, 'Home'>;
+type HomeProps = WithTranslation<'pageHome'> & StackScreenProps<RootStackParamList, 'Home'>;
 
-export default function Home({ navigation }: HomeProps) {
+function Home({ navigation, t }: HomeProps) {
   return (
     <Layout style={styles.container} navigation={navigation}>
       <Text>HOME</Text>
 
       <Button
-        title="Go to About"
+        title={t('go-to-about')}
         onPress={() => navigation.navigate('About')}
       />
     </Layout>
@@ -27,3 +28,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default withTranslation('pageHome')(Home);

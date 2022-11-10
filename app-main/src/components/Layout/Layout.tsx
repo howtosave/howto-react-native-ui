@@ -60,13 +60,9 @@ export default function Layout({ navigation, style, children }: LayoutProps) {
         </Menu>
       </Appbar.Header>
 
+    <View style={style}>
       {children}
+    </View>
     </React.Fragment>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-});
