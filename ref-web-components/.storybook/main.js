@@ -9,4 +9,9 @@ module.exports = {
     "@storybook/addon-react-native-web",
   ],
   framework: "@storybook/react",
+  webpackFinal: async (config, { configType }) => {
+    // resolve victory-native as victory for the Web app
+    config.resolve.alias['victory-native'] = 'victory';
+    return config;
+  },
 };

@@ -16,6 +16,11 @@ yarn sb init --type react_native
 yarn expo install jest-expo jest
 ```
 
+## Chart -- victory-native
+
+- [Documentation](https://formidable.com/open-source/victory/docs)
+- 
+
 ## References
 
 - [React Native with Storybook](https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/get-started/)

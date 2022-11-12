@@ -6,7 +6,7 @@ import {
 } from 'react-native-paper';
 import { useInterval } from '../../hooks/useInterval';
 
-interface TextNumberProps extends TextProps {
+export interface TextNumberProps extends TextProps {
   start?: number;
   value: number;
   duration?: number; // in ms
