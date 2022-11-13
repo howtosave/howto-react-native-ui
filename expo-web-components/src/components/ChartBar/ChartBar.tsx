@@ -35,7 +35,7 @@ export const ChartBar = ({ data, style }: ChartBarProps) => {
           {data.map((d, idx) => (
             <VictoryBar
               data={d}
-              labelComponent={<VictoryTooltip />}
+              labelComponent={<VictoryTooltip renderInPortal={false}/>}
               labels={({ datum }) => datum.y}
               dataComponent={
                 <Bar
@@ -50,7 +50,7 @@ export const ChartBar = ({ data, style }: ChartBarProps) => {
         <VictoryBar
           data={data[0]}
           labels={({ datum }) => datum.y}
-          labelComponent={<VictoryTooltip />}
+          labelComponent={<VictoryTooltip renderInPortal={false}/>}
           dataComponent={
             <Bar
               tabIndex={0}

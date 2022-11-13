@@ -66,7 +66,7 @@ export const ChartScreen: React.FC = () => {
 
       <VictoryChart>
         <VictoryScatter
-          labelComponent={<VictoryTooltip />}
+          labelComponent={<VictoryTooltip renderInPortal={false} />}
           style={{
             data: { fill: ({ datum }) => datum.fill },
           }}
