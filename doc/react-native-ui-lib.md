@@ -8,6 +8,7 @@ License: MIT License
 Demo: –
 Type of support: Community support via GitHub issues
 
+- online example using expo: https://snack.expo.dev/@react-native-paper/react-native-paper-example_v5
 - icon search on paper: https://callstack.github.io/react-native-paper/icons.html
 - icon search: https://oblador.github.io/react-native-vector-icons/
 

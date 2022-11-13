@@ -31,7 +31,11 @@ try {
 
 const getStories = () => {
   return [
-    // require("../src/components/Button/Button.stories.tsx"),
+    require("../src/components/Button/Button.stories.tsx"),
+    require("../src/components/ChartArea/ChartArea.stories.tsx"),
+    require("../src/components/ChartBar/ChartBar.stories.tsx"),
+    require("../src/components/ChartLine/ChartLine.stories.tsx"),
+    require("../src/components/ChartScatter/ChartScatter.stories.tsx"),
     require("../src/components/TextNumber/TextNumber.stories.tsx"),
   ];
 };

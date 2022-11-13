@@ -6,10 +6,10 @@ const MyButtonMeta: ComponentMeta<typeof Button> = {
   title: "Button",
   component: Button,
   argTypes: {
-    onPress: { action: "pressed the button" },
+    // onPress: { action: "pressed the button" },
   },
   args: {
-    text: "Hello world",
+    // text: "Hello world",
   },
 };
 
@@ -18,3 +18,6 @@ export default MyButtonMeta;
 type MyButtonStory = ComponentStory<typeof Button>;
 
 export const Basic: MyButtonStory = (args) => <Button {...args} />;
+Basic.args = {
+  text: 'Hello world',
+};

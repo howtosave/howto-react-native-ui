@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 interface ButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   text: string;
 }
 

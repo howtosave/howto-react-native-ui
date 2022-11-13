@@ -8,8 +8,6 @@ const TextNumberMeta: ComponentMeta<typeof TextNumber> = {
   argTypes: {
   },
   args: {
-    start: 100,
-    value: 1000,
   },
 };
 
@@ -18,3 +16,7 @@ export default TextNumberMeta;
 type TextNumberStory = ComponentStory<typeof TextNumber>;
 
 export const Basic: TextNumberStory = (args) => <TextNumber {...args} />;
+Basic.args = {
+  start: 100,
+  value: 1000,
+}

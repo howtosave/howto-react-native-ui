@@ -1,7 +1,7 @@
 {
-  "name": "cu-rn-client",
+  "name": "howto-rn-ui",
   "private": true,
-  "repository": "git@peterhs.github.com:peterhs/cu-rn-client.git",
+  "repository": "git@peterhs.github.com:peterhs/howto-rn-ui.git",
   "author": "peterhs.kang <peterhs.kang@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -13,6 +13,7 @@
   "resolutions": {
     "expo": "~47.0.3",
     "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-native": "0.70.5"
   },
   "workspaces": [
