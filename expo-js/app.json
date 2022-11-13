@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ref-expo",
-    "slug": "ref-expo",
+    "name": "expo-js",
+    "slug": "expo-js",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

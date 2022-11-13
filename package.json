@@ -1,11 +1,12 @@
 {
-  "name": "howto-rn-ui",
+  "name": "howto-react-native-ui",
   "private": true,
   "repository": "git@peterhs.github.com:peterhs/howto-rn-ui.git",
   "author": "peterhs.kang <peterhs.kang@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "expo start ./ref-expo --android"
+    "dev": "expo start ./expo-js --android",
+    "build:sb": "cd expo-web-components && yarn sb:build"
   },
   "devDependencies": {
     "lerna": "~6.0.3"
@@ -17,7 +18,6 @@
     "react-native": "0.70.5"
   },
   "workspaces": [
-    "app-*",
-    "ref-*"
+    "expo-*"
   ]
 }

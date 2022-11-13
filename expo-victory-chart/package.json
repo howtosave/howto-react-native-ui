@@ -1,5 +1,5 @@
 {
-  "name": "rn-victory-charts",
+  "name": "expo-victory-charts",
   "version": "1.0.0",
   "sideEffects": false,
   "main": "./entry.ts",

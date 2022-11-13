@@ -1,5 +1,5 @@
 {
-  "name": "ref-navigation",
+  "name": "expo-navigation",
   "version": "1.0.0",
   "main": "./entry.ts",
   "scripts": {

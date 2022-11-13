@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "React Native Paper Example",
+    "name": "expo-react-native-paper",
     "description": "Example app for React Native Paper: https://callstack.github.io/react-native-paper/",
-    "slug": "react-native-paper-example",
+    "slug": "expo-react-native-paper",
     "privacy": "public",
     "version": "2.0.0",
     "orientation": "default",

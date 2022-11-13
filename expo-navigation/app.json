@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ref-navigation",
-    "slug": "ref-navigation",
+    "name": "expo-navigation",
+    "slug": "expo-navigation",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

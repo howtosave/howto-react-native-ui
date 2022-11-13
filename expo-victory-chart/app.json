@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-victory-charts",
-    "slug": "rn-victory-charts",
+    "name": "expo-victory-charts",
+    "slug": "expo-victory-charts",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
