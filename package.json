@@ -6,10 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "expo start ./expo-js --android",
-    "build:sb": "cd expo-web-components && yarn sb:build"
+    "build:sb": "lerna run sb:build --scope expo-web-components"
   },
   "devDependencies": {
-    "lerna": "~6.0.3"
+    "lerna": "^6.0.3"
   },
   "resolutions": {
     "expo": "~47.0.3",
