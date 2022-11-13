@@ -10,7 +10,7 @@
     "prestart": "yarn update-stories",
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "sb": "start-storybook -p 7007",
-    "sb:build": "build-storybook",
+    "sb:build": "build-storybook --output-dir ../docs/expo-web-components-storybook-static",
     "sb:serve": "serve storybook-static"
   },
   "dependencies": {
