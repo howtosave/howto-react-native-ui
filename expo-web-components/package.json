@@ -6,10 +6,10 @@
     "start": "expo start",
     "dev": "expo start --android",
     "web": "expo start --web",
-    "update-stories": "sb-rn-get-stories --config-path .ondevice",
     "prestart": "yarn update-stories",
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
-    "sb": "start-storybook -p 7007",
+    "sb:update": "sb-rn-get-stories --config-path .ondevice",
+    "sb": "start-storybook -p 7007 --ci",
     "sb:build": "build-storybook --output-dir ../docs/expo-web-components-storybook-static",
     "sb:serve": "serve storybook-static"
   },
