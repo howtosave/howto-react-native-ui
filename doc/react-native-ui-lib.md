@@ -12,6 +12,9 @@ Type of support: Community support via GitHub issues
 - icon search on paper: https://callstack.github.io/react-native-paper/icons.html
 - icon search: https://oblador.github.io/react-native-vector-icons/
 
+## Expo
+
+- icon search: https://icons.expo.fyi/
 
 ## React Native Elements
 Web-site: https://react-native-elements.github.io/react-native-elements/

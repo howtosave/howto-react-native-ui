@@ -37,9 +37,11 @@ const getStories = () => {
     require("../src/components/ChartLine/ChartLine.stories.tsx"),
     require("../src/components/ChartScatter/ChartScatter.stories.tsx"),
     require("../src/components/LikeCount/LikeCount.stories.tsx"),
+    require("../src/components/Picker/Picker.stories.tsx"),
     require("../src/components/TextNumber/TextNumber.stories.tsx"),
     require("../src/containers/FlexLayout/FlexLayout.stories.tsx"),
     require("../src/containers/HeadphoneCarousel/HeadphoneCarousel.stories.tsx"),
+    require("../src/containers/LottieAnimated/LottieAnimated.stories.tsx"),
     require("../src/containers/NestPager/NestPager.stories.tsx"),
   ];
 };
