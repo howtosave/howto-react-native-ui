@@ -6,6 +6,9 @@
 # install eas
 npm install -g eas
 
+# install sharp-cli
+npm install -g sharp-cli
+
 # on project root directory
 # generate project id
 eas init

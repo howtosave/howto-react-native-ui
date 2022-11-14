@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.peterhskang.expowebcomponents"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -34,6 +35,11 @@
             "victory-native"
           ]
         }
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e20f9680-ab08-4e3d-b498-53ca188226bc"
       }
     }
   }

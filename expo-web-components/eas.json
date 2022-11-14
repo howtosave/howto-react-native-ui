@@ -1,0 +1,29 @@
+{
+  "cli": {
+    "version": ">= 2.7.0"
+  },
+  "build": {
+    "dev": {
+      "distribution": "internal",
+      "env": {
+        "API_URL": "https://company.com/api"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}
