@@ -1,25 +1,23 @@
 import React, { memo, useState } from 'react';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {
   Background,
   Logo,
   Header,
-  Paragraph,
+  Layout,
   Button,
   BackButton,
   TextInput,
 } from '../components/Basic';
 import { theme } from '../theme';
-import { Navigation } from '../types';
 import {
   emailValidator,
   passwordValidator,
   nameValidator,
 } from '../libs/input-validator';
 
-type Props = {
-  navigation: Navigation;
-};
+type Props = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
 const RegisterScreen = ({ navigation }: Props) => {
   const [name, setName] = useState({ value: '', error: '' });
@@ -43,64 +41,75 @@ const RegisterScreen = ({ navigation }: Props) => {
 
   return (
     <Background source={require('./assets/background_dot.png')}>
-      <BackButton goBack={() => navigation.navigate('HomeScreen')} />
+      <Layout style={styles.container} navigation={navigation} withKeyboardAvoidingView >
+        <Logo source={require('./assets/logo.png')}/>
 
-      <Logo source={require('./assets/logo.png')}/>
+        <Header>Create Account</Header>
 
-      <Header>Create Account</Header>
+        <TextInput
+          style={styles.textInput}
+          label="Name"
+          returnKeyType="next"
+          value={name.value}
+          onChangeText={text => setName({ value: text, error: '' })}
+          error={!!name.error}
+          errorText={name.error}
+        />
 
-      <TextInput
-        label="Name"
-        returnKeyType="next"
-        value={name.value}
-        onChangeText={text => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
-      />
+        <TextInput
+          style={styles.textInput}
+          label="Email"
+          returnKeyType="next"
+          value={email.value}
+          onChangeText={text => setEmail({ value: text, error: '' })}
+          error={!!email.error}
+          errorText={email.error}
+          autoCapitalize="none"
+          // autoCompleteType="email"
+          textContentType="emailAddress"
+          keyboardType="email-address"
+        />
 
-      <TextInput
-        label="Email"
-        returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        // autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
+        <TextInput
+          style={styles.textInput}
+          label="Password"
+          returnKeyType="done"
+          value={password.value}
+          onChangeText={text => setPassword({ value: text, error: '' })}
+          error={!!password.error}
+          errorText={password.error}
+          secureTextEntry
+        />
 
-      <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
+        <Button mode="contained" onPress={_onSignUpPressed} style={styles.button}>
+          Sign Up
+        </Button>
 
-      <Button mode="contained" onPress={_onSignUpPressed} style={styles.button}>
-        Sign Up
-      </Button>
-
-      <View style={styles.row}>
-        <Text style={styles.label}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.row}>
+          <Text style={styles.label}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.link}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </Layout>
     </Background>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textInput: {
+    width: '70%',
+  },
   label: {
     color: theme.colors.secondary,
   },
   button: {
     marginTop: 24,
+    width: '60%',
   },
   row: {
     flexDirection: 'row',

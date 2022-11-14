@@ -1,3 +1,7 @@
+// for using @react-navigation/stack
+// See https://reactnavigation.org/docs/stack-navigator
+import 'react-native-gesture-handler';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

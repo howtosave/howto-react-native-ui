@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: [
     "../src/components/**/*.stories.mdx",
@@ -8,8 +10,19 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-react-native-web",
+    {
+      name: '@storybook/addon-react-native-web',
+      options: {
+        modulesToTranspile: ['dripsy', '@dripsy/core', 'react-native-reanimated'],
+        babelPlugins: ['react-native-reanimated/plugin'],
+        // projectRoot: path.resolve(__dirname, '../../'),
+      }
+    }
   ],
+  // babel: async (options) => ({
+  //   ...options,
+  //   // any extra options you want to set
+  // }),
   framework: "@storybook/react",
   webpackFinal: async (config, { configType }) => {
     // resolve victory-native as victory for the Web app

@@ -1,5 +1,6 @@
 import React, { memo, useState } from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {
   Background,
   Logo,
@@ -8,15 +9,13 @@ import {
   Button,
   BackButton,
   TextInput,
+  Layout,
 } from '../components/Basic';
 
 import { emailValidator } from '../libs/input-validator';
 import { theme } from '../theme';
-import { Navigation } from '../types';
 
-type Props = {
-  navigation: Navigation;
-};
+type Props = NativeStackScreenProps<RootStackParamList, 'ForgotPassword'>;
 
 const ForgotPasswordScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
@@ -29,55 +28,64 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
       return;
     }
 
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Login');
   };
 
   return (
     <Background source={require('./assets/background_dot.png')}>
-      <BackButton goBack={() => navigation.navigate('LoginScreen')} />
+      <Layout style={styles.container} navigation={navigation}>
+        <Logo source={require('./assets/logo.png')}/>
 
-      <Logo />
+        <Header>Restore Password</Header>
 
-      <Header>Restore Password</Header>
+        <TextInput
+          style={styles.textInput}
+          label="E-mail address"
+          returnKeyType="done"
+          value={email.value}
+          onChangeText={text => setEmail({ value: text, error: '' })}
+          error={!!email.error}
+          errorText={email.error}
+          autoCapitalize="none"
+          // autoCompleteType="email"
+          textContentType="emailAddress"
+          keyboardType="email-address"
+        />
 
-      <TextInput
-        label="E-mail address"
-        returnKeyType="done"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        // autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
+        <Button mode="contained" onPress={_onSendPressed} style={styles.button}>
+          Send Reset Instructions
+        </Button>
 
-      <Button mode="contained" onPress={_onSendPressed} style={styles.button}>
-        Send Reset Instructions
-      </Button>
-
-      <TouchableOpacity
-        style={styles.back}
-        onPress={() => navigation.navigate('LoginScreen')}
-      >
-        <Text style={styles.label}>← Back to login</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.back}
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text style={styles.label}>← Back to login</Text>
+        </TouchableOpacity>
+      </Layout>
     </Background>
   );
 };
 
 const styles = StyleSheet.create({
-  back: {
-    width: '100%',
-    marginTop: 12,
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textInput: {
+    width: '70%',
   },
   button: {
     marginTop: 12,
+    width: '60%',
   },
   label: {
     color: theme.colors.secondary,
-    width: '100%',
+    width: '60%',
+  },
+  back: {
+    width: '60%',
+    marginTop: 12,
   },
 });
 

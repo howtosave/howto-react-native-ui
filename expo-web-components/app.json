@@ -32,7 +32,8 @@
       "build": {
         "babel": {
           "include": [
-            "victory-native"
+            "victory-native",
+            "@babel/plugin-proposal-export-namespace-from"
           ]
         }
       }
