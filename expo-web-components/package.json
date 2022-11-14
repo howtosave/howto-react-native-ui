@@ -1,12 +1,13 @@
 {
   "name": "expo-web-components",
   "version": "1.0.0",
-  "main": "./entry.ts",
+  "main": "./App.ts",
   "scripts": {
     "start": "expo start",
     "dev": "expo start --android",
     "web": "expo start --web",
     "build:init": "eas init",
+    "build:configure": "eas build:configure",
     "build:android:dev": "eas build -p android --profile dev --local",
     "clean-build:android:dev": "yarn build:android:dev --clear-cache",
     "prestart": "yarn update-stories",
