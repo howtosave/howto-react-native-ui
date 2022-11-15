@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, Platform } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {
   Background,
@@ -13,7 +13,7 @@ import {
 import { theme } from '../theme';
 import { emailValidator, passwordValidator } from '../libs/input-validator';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
+type Props = NativeStackScreenProps<MainStackParamList, 'Login'>;
 
 const LoginScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
@@ -77,7 +77,7 @@ const LoginScreen = ({ navigation }: Props) => {
         </Button>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Don’t have an account? </Text>
+          <Text style={styles.label}>Don't have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Register')}>
             <Text style={styles.link}>Sign up</Text>
           </TouchableOpacity>
@@ -89,8 +89,16 @@ const LoginScreen = ({ navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: Platform.select({
+      // N.B.
+      // - react-navigation stack을 사용할, 때 이 값이 'center' 일 경우 웹 버전에서 화면이 짤리는 현상이 발생함
+      // - Android에는는 정상 동작 확인됨
+      // - 해당 원인은 native-stack의 웹 버전에서 flex layout 화면의 height 값이 0으로 계산됨으로써 발생된다고 추정됨
+      // - Android에서 정상 동작되고 있기 때문에 native-stack의 웹 버전 변환 시 버그라고 판단됨
+      web: 'flex-start',
+      default: 'center',
+    }),
   },
   textInput: {
     width: '70%',

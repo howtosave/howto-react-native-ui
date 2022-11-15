@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackHeaderProps, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as PageProvider, adaptNavigationTheme } from 'react-native-paper';
@@ -15,7 +15,6 @@ import RegisterScreen from './RegisterScreen';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 
 import { Appbar, ItemType } from '../containers/Appbar/Appbar';
-import { Drawer } from '../containers/Drawer/Drawer';
 
 import { Text } from 'react-native-paper';
 const AboutScreen = () => <React.Fragment><Text>About</Text></React.Fragment>;
@@ -53,89 +52,59 @@ const NavigationBar = ({ route, navigation, back }: NativeStackHeaderProps) => {
 };
 
 //
-// custom drawer
+// Main Stack
 //
-const drawerItems = [
-  {name: 'first', icon: 'star', label: 'first'},
-  {name: 'second', icon: 'star', label: 'second'},
-  {name: 'third', icon: 'star', label: 'third'},
-];
-
-const DrawerContent = (props: DrawerContentComponentProps) => {
-  return (
-    <Drawer items={drawerItems}/>
-  );
+const MainStack = createNativeStackNavigator<MainStackParamList>();
+type Props = {
+  isLoggedIn: boolean
 };
 
-
-//
-// Root Stack
-//
-const RootStack = createNativeStackNavigator<RootStackParamList>();
-
-const RootNavi = ({ isLoggedIn }: {isLoggedIn: boolean}) => {
+const MainNavi = ({ isLoggedIn }: Props) => {
   return (
-    <RootStack.Navigator
+    <MainStack.Navigator
       screenOptions={{
         header: (props) => <NavigationBar {...props} />,
       }}
     >
-
       {isLoggedIn ? (
-        <RootStack.Group>
-          <RootStack.Screen name="Login" component={LoginScreen}/>
-          <RootStack.Screen name="Register" component={RegisterScreen}/>
-          <RootStack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-        </RootStack.Group>
+        <MainStack.Group>
+          <MainStack.Screen name="Dashboard" component={DashboardScreen}/>
+          <MainStack.Screen name="About" component={AboutScreen} />
+        </MainStack.Group>
       ):(
-        <RootStack.Group>
-          <RootStack.Screen name="Dashboard" component={DashboardScreen}/>
-          <RootStack.Screen name="About" component={AboutScreen} />
-        </RootStack.Group>
+        <MainStack.Group>
+          <MainStack.Screen name="Login" component={LoginScreen}/>
+          <MainStack.Screen name="Register" component={RegisterScreen}/>
+          <MainStack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+        </MainStack.Group>
       )}
 
       {/* Common Screens */}
-      <RootStack.Screen name="Landing" component={LandingScreen}/>
-    </RootStack.Navigator>
-
+      <MainStack.Screen name="Landing" component={LandingScreen}/>
+    </MainStack.Navigator>
   );
 };
-
-//
-// Drawer Stack
-//
-const DrawerStack = createDrawerNavigator();
-const DrawerNavi = (props: {isLoggedIn: boolean}) => {
-  return (
-    <DrawerStack.Navigator
-      drawerContent={(props) => <DrawerContent {...props} />}
-    >
-      <DrawerStack.Screen name="RootNavi" component={RootNavi} options={{ drawerLabel: 'Dashboard', params: {...props}, }} />
-      <DrawerStack.Screen name="About" component={AboutScreen} />
-    </DrawerStack.Navigator>
-  );
-}
 
 //
 // App Main
 //
 const { LightTheme } = adaptNavigationTheme({ light: DefaultTheme });
 
-type Props = {
+type NaviProps = {
   isLoggedIn?: boolean;
-  page?: keyof RootStackParamList;
+  page?: keyof MainStackParamList;
 };
 
-const AppMain = ({ isLoggedIn = false, page }: Props) => {
+const NavigationWithCustomHeader = ({ isLoggedIn = false, page }: NaviProps) => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={LightTheme}>
 
-        <DrawerNavi isLoggedIn={isLoggedIn} />
+        <MainNavi isLoggedIn={isLoggedIn} />
 
       </NavigationContainer>
     </SafeAreaProvider>
   );
 }
 
-export default AppMain;
+export default NavigationWithCustomHeader;

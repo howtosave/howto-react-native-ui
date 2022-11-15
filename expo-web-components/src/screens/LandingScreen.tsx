@@ -9,7 +9,7 @@ import {
   Layout,
 } from '../components/Basic';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Landing'>;
+type Props = NativeStackScreenProps<MainStackParamList, 'Landing'>;
 
 const LandingScreen = ({ navigation }: Props) => (
   <Background source={require('./assets/background_dot.png')}>

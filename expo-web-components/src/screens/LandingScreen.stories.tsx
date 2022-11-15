@@ -22,7 +22,7 @@ export const Basic: Story = (args) => <SafeAreaProvider><LandingScreen {...args}
 Basic.args = {
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<MainStackParamList>();
 
 export const WithNavigator: Story = (args) => (
   <SafeAreaProvider>

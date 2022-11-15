@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import {
   Background,
@@ -15,7 +15,7 @@ import {
 import { emailValidator } from '../libs/input-validator';
 import { theme } from '../theme';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ForgotPassword'>;
+type Props = NativeStackScreenProps<MainStackParamList, 'ForgotPassword'>;
 
 const ForgotPasswordScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
@@ -70,7 +70,15 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: Platform.select({
+      // N.B.
+      // - react-navigation stack을 사용할, 때 이 값이 'center' 일 경우 웹 버전에서 화면이 짤리는 현상이 발생함
+      // - Android에는는 정상 동작 확인됨
+      // - 해당 원인은 native-stack의 웹 버전에서 flex layout 화면의 height 값이 0으로 계산됨으로써 발생된다고 추정됨
+      // - Android에서 정상 동작되고 있기 때문에 native-stack의 웹 버전 변환 시 버그라고 판단됨
+      web: 'flex-start',
+      default: 'center',
+    }),
   },
   textInput: {
     width: '70%',

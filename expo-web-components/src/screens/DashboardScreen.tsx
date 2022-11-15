@@ -10,7 +10,7 @@ import {
   Layout,
 } from '../components/Basic';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
+type Props = NativeStackScreenProps<MainStackParamList, 'Dashboard'>;
 
 const DashboardScreen = ({ navigation }: Props) => (
   <Background source={require('./assets/background_dot.png')}>

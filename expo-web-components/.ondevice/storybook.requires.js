@@ -45,11 +45,13 @@ const getStories = () => {
     require("../src/containers/HeadphoneCarousel/HeadphoneCarousel.stories.tsx"),
     require("../src/containers/LottieAnimated/LottieAnimated.stories.tsx"),
     require("../src/containers/NestPager/NestPager.stories.tsx"),
-    require("../src/screens/AppMain.stories.tsx"),
     require("../src/screens/DashboardScreen.stories.tsx"),
     require("../src/screens/ForgotPasswordScreen.stories.tsx"),
     require("../src/screens/LandingScreen.stories.tsx"),
     require("../src/screens/LoginScreen.stories.tsx"),
+    require("../src/screens/NavigationTest.stories.tsx"),
+    require("../src/screens/NavigationWithCustomHeader.stories.tsx"),
+    require("../src/screens/NavigationWithDrawer.stories.tsx"),
     require("../src/screens/RegisterScreen.stories.tsx"),
   ];
 };
