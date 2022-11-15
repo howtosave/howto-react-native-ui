@@ -55,6 +55,22 @@ module.exports = {
       acc[name] = path.join(root, 'node_modules', name);
       return acc;
     }, {}),
+
+    resolverMainFields: [
+      "sbmodern",
+      ...defaultConfig.resolver.resolverMainFields,
+    ],
+
+  },
+
+  transformer: {
+    ...defaultConfig.transformer,
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    },
   },
 
   server: {

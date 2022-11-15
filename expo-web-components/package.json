@@ -11,7 +11,6 @@
     "build:configure": "eas build:configure",
     "build:android:dev": "eas build -p android --profile dev --local",
     "clean-build:android:dev": "yarn build:android:dev --clear-cache",
-    "prestart": "yarn update-stories",
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "sb:update": "sb-rn-get-stories --config-path .ondevice",
     "sb": "start-storybook -p 7007 --ci",
