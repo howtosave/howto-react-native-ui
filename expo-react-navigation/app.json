@@ -1,10 +1,9 @@
 {
-  "name": "ReactNavigationExample",
+  "name": "expo_react_navigation",
   "displayName": "React Navigation Example",
   "expo": {
-    "name": "React Navigation",
-    "owner": "react-navigation",
-    "slug": "react-navigation-example",
+    "name": "expo_react_navigation",
+    "slug": "expo_react_navigation",
     "description": "Demonstrates the functionality and various capabilities of React Navigation.",
     "privacy": "public",
     "version": "1.0.0",
@@ -14,14 +13,27 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "org.reactnavigation.example"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "org.reactnavigation.example"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "build": {
+        "babel": {
+          "include": [
+            "victory-native",
+            "@babel/plugin-proposal-export-namespace-from"
+          ]
+        }
+      }
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -30,9 +42,6 @@
       "**/*"
     ],
     "scheme": "rne",
-    "entryPoint": "App.tsx",
-    "android": {
-      "package": "org.reactnavigation.example"
-    }
+    "entryPoint": "App.tsx"
   }
 }

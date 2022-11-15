@@ -2,11 +2,13 @@
   "name": "expo-react-navigation",
   "description": "Demo app to showcase various functionality of React Navigation",
   "version": "5.1.0",
+  "main": "./App.tsx",
   "private": true,
   "scripts": {
     "start": "expo start",
     "client": "expo start --dev-client",
     "web": "expo start --web",
+    "dev": "expo start --android",
     "android": "expo run:android",
     "ios": "run-s pod-install run:ios",
     "run:ios": "expo run:ios",

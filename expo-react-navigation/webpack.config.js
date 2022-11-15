@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 
 const node_modules = path.resolve(__dirname, '..', 'node_modules');

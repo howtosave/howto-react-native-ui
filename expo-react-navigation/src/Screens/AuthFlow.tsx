@@ -1,8 +1,12 @@
 import { ParamListBase, useTheme } from '@react-navigation/native';
+// import {
+//   createStackNavigator,
+//   StackScreenProps,
+// } from '@react-navigation/stack';
 import {
-  createStackNavigator,
-  StackScreenProps,
-} from '@react-navigation/stack';
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ActivityIndicator, StyleSheet, TextInput, View } from 'react-native';
 import { Button, Title } from 'react-native-paper';
@@ -39,6 +43,8 @@ const SplashScreen = () => {
     </View>
   );
 };
+
+interface StackScreenProps<T extends ParamListBase, n> extends NativeStackScreenProps<T, n> {}
 
 const SignInScreen = ({
   navigation,
@@ -110,7 +116,8 @@ const ChatScreen = () => {
   );
 };
 
-const SimpleStack = createStackNavigator<AuthStackParams>();
+// const SimpleStack = createStackNavigator<AuthStackParams>();
+const SimpleStack = createNativeStackNavigator<AuthStackParams>();
 
 type State = {
   isLoading: boolean;
@@ -215,6 +222,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'red',
   },
   input: {
     margin: 8,
