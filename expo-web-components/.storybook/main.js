@@ -14,8 +14,10 @@ module.exports = {
       name: '@storybook/addon-react-native-web',
       options: {
         modulesToTranspile: ['dripsy', '@dripsy/core', 'react-native-reanimated'],
-        babelPlugins: ['react-native-reanimated/plugin'],
-        // projectRoot: path.resolve(__dirname, '../../'),
+        babelPlugins: [
+          '@babel/plugin-proposal-export-namespace-from',
+          'react-native-reanimated/plugin'
+        ],
       }
     }
   ],

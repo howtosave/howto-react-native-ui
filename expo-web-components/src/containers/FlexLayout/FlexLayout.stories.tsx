@@ -36,7 +36,7 @@ Basic.args = {
 
 const TestView = () => {
   return (
-    <View style={{ flex: 1, borderWidth: 1, borderColor: 'red' }}>
+    <View style={{ flex: 1, borderWidth: 2, borderColor: 'red', padding: 20 }}>
       <Text>1</Text>
       <Text>2</Text>
       <Text>3</Text>
@@ -44,8 +44,8 @@ const TestView = () => {
   );
 }
 
-//const Stack = createNativeStackNavigator<{ TestView: undefined}>();
-const Stack = createStackNavigator<{ TestView: undefined }>();
+const Stack = createNativeStackNavigator<{ TestView: undefined}>();
+//const Stack = createStackNavigator<{ TestView: undefined }>();
 
 export const WithNavigator: Story = (args) => (
     <NavigationContainer>
