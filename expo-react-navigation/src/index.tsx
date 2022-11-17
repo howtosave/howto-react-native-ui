@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import {
-//   useFlipper,
-//   useReduxDevToolsExtension,
-// } from '@react-navigation/devtools';
+import {
+  useFlipper,
+  useReduxDevToolsExtension,
+} from '@react-navigation/devtools';
 import {
   createDrawerNavigator,
   DrawerScreenProps,
@@ -129,8 +129,8 @@ export default function App() {
 
   const navigationRef = useNavigationContainerRef();
 
-  // useReduxDevToolsExtension(navigationRef);
-  // useFlipper(navigationRef);
+  useReduxDevToolsExtension(navigationRef);
+  useFlipper(navigationRef);
 
   if (!isReady) {
     return null;

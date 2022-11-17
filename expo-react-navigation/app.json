@@ -20,14 +20,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "org.howtosave.react_navigation_example"
+      "bundleIdentifier": "org.howtosave.reactnavigationexample"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "org.howtosave.react_navigation_example"
+      "package": "org.howtosave.reactnavigationexample"
     },
     "web": {
       "favicon": "./assets/favicon.png",
