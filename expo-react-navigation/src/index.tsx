@@ -122,9 +122,9 @@ export default function App() {
       setDimensions(window);
     };
 
-    Dimensions.addEventListener('change', onDimensionsChange);
+    const dimSub = Dimensions.addEventListener('change', onDimensionsChange);
 
-    return () => Dimensions.removeEventListener('change', onDimensionsChange);
+    return () => dimSub.remove();
   }, []);
 
   const navigationRef = useNavigationContainerRef();

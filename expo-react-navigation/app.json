@@ -13,16 +13,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "org.reactnavigation.example"
+      "bundleIdentifier": "org.howtosave.react_navigation_example"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "org.reactnavigation.example"
+      "package": "org.howtosave.react_navigation_example"
     },
     "web": {
       "favicon": "./assets/favicon.png",

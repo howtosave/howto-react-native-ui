@@ -60,7 +60,6 @@ module.exports = {
       "sbmodern",
       ...defaultConfig.resolver.resolverMainFields,
     ],
-
   },
 
   transformer: {
@@ -70,7 +69,7 @@ module.exports = {
         experimentalImportSupport: false,
         inlineRequires: false,
       },
-    },
+    }),
   },
 
   server: {
