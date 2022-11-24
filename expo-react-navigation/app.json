@@ -23,30 +23,20 @@
       "bundleIdentifier": "org.howtosave.reactnavigationexample"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
       "package": "org.howtosave.reactnavigationexample"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
-      "build": {
-        "babel": {
-          "include": [
-            "victory-native",
-            "@babel/plugin-proposal-export-namespace-from"
-          ]
-        }
-      }
-    },
-    "updates": {
+      "favicon": "./assets/favicon.png"
+    },    "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "scheme": "rne",
-    "entryPoint": "App.tsx"
+    "entryPoint": "App.tsx",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
