@@ -7,19 +7,19 @@ const { getDefaultConfig } = require('@expo/metro-config');
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 const root = path.resolve(__dirname, '..');
-const packages = path.resolve(root, 'packages');
+// const packages = path.resolve(root, 'packages');
 
 const defaultConfig = getDefaultConfig(__dirname);
 
 // List all packages under `packages/`
-const workspaces = fs
-  .readdirSync(packages)
-  .map((p) => path.join(packages, p))
-  .filter(
-    (p) =>
-      fs.statSync(p).isDirectory() &&
-      fs.existsSync(path.join(p, 'package.json'))
-  );
+// const workspaces = fs
+//   .readdirSync(packages)
+//   .map((p) => path.join(packages, p))
+//   .filter(
+//     (p) =>
+//       fs.statSync(p).isDirectory() &&
+//       fs.existsSync(path.join(p, 'package.json'))
+//   );
 
 // Get the list of dependencies for all packages in the monorepo
 const modules = ['@expo/vector-icons']
@@ -49,7 +49,7 @@ module.exports = {
   // We need to watch the root of the monorepo
   // This lets Metro find the monorepo packages automatically using haste
   // This also lets us import modules from monorepo root
-  watchFolders: [root],
+  // watchFolders: [root],
 
   resolver: {
     ...defaultConfig.resolver,
@@ -89,19 +89,19 @@ module.exports = {
     }),
   },
 
-  server: {
-    ...defaultConfig.server,
+  // server: {
+  //   ...defaultConfig.server,
 
-    enhanceMiddleware: (middleware) => {
-      return (req, res, next) => {
-        // When an asset is imported outside the project root, it has wrong path on Android
-        // So we fix the path to correct one
-        if (/\/packages\/.+\.png\?.+$/.test(req.url)) {
-          req.url = `/assets/../${req.url}`;
-        }
+  //   enhanceMiddleware: (middleware) => {
+  //     return (req, res, next) => {
+  //       // When an asset is imported outside the project root, it has wrong path on Android
+  //       // So we fix the path to correct one
+  //       if (/\/packages\/.+\.png\?.+$/.test(req.url)) {
+  //         req.url = `/assets/../${req.url}`;
+  //       }
 
-        return middleware(req, res, next);
-      };
-    },
-  },
+  //       return middleware(req, res, next);
+  //     };
+  //   },
+  // },
 };

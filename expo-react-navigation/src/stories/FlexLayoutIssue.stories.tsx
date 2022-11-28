@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
+import type { ComponentStory, ComponentMeta } from "@storybook/react-native";
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -32,7 +32,7 @@ type Story = ComponentStory<typeof FlexLayoutTestView>;
 const Stack = createNativeStackNavigator<{ TestView: undefined}>();
 //const Stack = createStackNavigator<{ TestView: undefined }>();
 
-export const WithNavigator: Story = (args) => (
+export const WithNavigator: Story = (_args) => (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="TestView">
         <Stack.Screen name="TestView" component={FlexLayoutTestView} />
@@ -40,4 +40,4 @@ export const WithNavigator: Story = (args) => (
     </NavigationContainer>
 );
 
-export const WithoutNavigator: Story = (args) => <FlexLayoutTestView />;
+export const WithoutNavigator: Story = (_args) => <FlexLayoutTestView />;

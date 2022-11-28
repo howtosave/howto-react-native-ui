@@ -1,10 +1,11 @@
 {
   "name": "howto-react-native-ui",
   "private": true,
-  "repository": "git@peterhs.github.com:peterhs/howto-rn-ui.git",
+  "repository": "git@howtosave.github.com:howtosave/howto-react-native-ui.git",
   "author": "peterhs.kang <peterhs.kang@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "expo start ./expo-js",
     "dev": "expo start ./expo-js --android",
     "build:sb": "lerna run sb:build --scope expo-web-components"
   },
