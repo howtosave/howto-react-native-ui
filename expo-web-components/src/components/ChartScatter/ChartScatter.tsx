@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import type { VictoryScatterProps } from 'victory';
 import {
   VictoryChart,
   VictoryScatter,
   VictoryStack,
   VictoryTheme,
-} from "victory-native";
-import type { VictoryScatterProps } from 'victory';
+} from 'victory-native';
 
 type ChartData = VictoryScatterProps['data'][];
 type ScatterStyle = VictoryScatterProps['style'];
@@ -22,21 +22,13 @@ export const ChartScatter = ({ data, style }: ChartScatterProps) => {
   return (
     <VictoryChart theme={VictoryTheme.material}>
       {isStacked ? (
-        <VictoryStack
-        >
+        <VictoryStack>
           {data.map((d, idx) => (
-            <VictoryScatter
-              style={style}
-              data={d}
-              key={idx}
-            />
+            <VictoryScatter style={style} data={d} key={idx} />
           ))}
         </VictoryStack>
       ) : (
-        <VictoryScatter
-          style={style}
-          data={data[0]}
-        />
+        <VictoryScatter style={style} data={data[0]} />
       )}
     </VictoryChart>
   );
@@ -46,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: "violet",
+    backgroundColor: 'violet',
   },
-  text: { color: "blue" },
+  text: { color: 'blue' },
 });

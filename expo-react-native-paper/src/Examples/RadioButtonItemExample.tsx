@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { RadioButton } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

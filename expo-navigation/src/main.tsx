@@ -1,15 +1,15 @@
 import React from 'react';
+import { I18nManager, useColorScheme } from 'react-native';
 import {
-  Provider as PaperProvider,
   DefaultTheme,
   MD3DarkTheme,
+  Provider as PaperProvider,
 } from 'react-native-paper';
-import { I18nManager, useColorScheme } from 'react-native';
 // import { Updates } from 'expo';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { RootNavigator } from './screens/rootNavigator';
 import { PreferencesContext } from './context/preferencesContext';
+import { RootNavigator } from './screens/rootNavigator';
 
 const Main = () => {
   const colorScheme = useColorScheme();
@@ -19,7 +19,7 @@ const Main = () => {
   const [rtl] = React.useState<boolean>(I18nManager.isRTL);
 
   function toggleTheme() {
-    setTheme(theme => (theme === 'light' ? 'dark' : 'light'));
+    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
   }
 
   const toggleRTL = React.useCallback(() => {

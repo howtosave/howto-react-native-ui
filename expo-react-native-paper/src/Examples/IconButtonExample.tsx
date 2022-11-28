@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-
 import { IconButton, List, MD2Colors, MD3Colors } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { List, SegmentedButtons } from 'react-native-paper';
 
 const SegmentedButtonWithDensity = () => {
   const [value, setValue] = React.useState('');
 
   return (
-    <List.Section title={`Segmented Button - only labels + density`}>
+    <List.Section title="Segmented Button - only labels + density">
       <SegmentedButtons
         onValueChange={setValue}
         value={value}

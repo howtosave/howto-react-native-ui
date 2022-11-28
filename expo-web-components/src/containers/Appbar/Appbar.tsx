@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { Appbar as AppbarA, FAB, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -11,7 +11,7 @@ export type ItemType = {
   icon: string;
   label?: string;
   display?: 'show' | 'disabled' | 'hidden';
-}
+};
 
 interface Props {
   items?: ItemType[];
@@ -23,10 +23,10 @@ interface Props {
 }
 
 export const Appbar = ({
-  items=[],
+  items = [],
   onSelect,
   topTitle,
-  isBottom=false,
+  isBottom = false,
 }: Props) => {
   const { bottom } = useSafeAreaInsets();
   const theme = useTheme();
@@ -34,7 +34,9 @@ export const Appbar = ({
 
   const backItem = items.find((e) => e.name === 'back');
   const fabItem = items.find((e) => e.name === 'fab');
-  const actionItems = items.filter((e) => e.name !== 'back' && e.name !== 'fab');
+  const actionItems = items.filter(
+    (e) => e.name !== 'back' && e.name !== 'fab'
+  );
 
   function _onPress(item: ItemType) {
     setActive(item.name);
@@ -42,10 +44,10 @@ export const Appbar = ({
   }
 
   // TODO:
-  // const actionSize = size === 'small' ? 20 
+  // const actionSize = size === 'small' ? 20
   //   : size === 'medium' ? 24
   //   : size === 'large' ? 26 : 24;
-  // const bottomAppbarHeight = size === 'small' ? MEDIUM_BOTTOM_APPBAR_HEIGHT - 10 
+  // const bottomAppbarHeight = size === 'small' ? MEDIUM_BOTTOM_APPBAR_HEIGHT - 10
   //   : size === 'medium' ? MEDIUM_BOTTOM_APPBAR_HEIGHT
   //   : size === 'large' ? MEDIUM_BOTTOM_APPBAR_HEIGHT + 5 : MEDIUM_BOTTOM_APPBAR_HEIGHT;
   // const fabSize = size === 'small' ? MEDIUM_FAB_HEIGHT - 2
@@ -65,7 +67,12 @@ export const Appbar = ({
         safeAreaInsets={{ bottom }}
       >
         {actionItems.map((e) => (
-          <AppbarA.Action icon={e.icon} disabled={e.display === 'disabled'} onPress={() => _onPress(e)} key={e.name}/>
+          <AppbarA.Action
+            icon={e.icon}
+            disabled={e.display === 'disabled'}
+            onPress={() => _onPress(e)}
+            key={e.name}
+          />
         ))}
         {fabItem && (
           <FAB
@@ -83,12 +90,15 @@ export const Appbar = ({
   } else {
     return (
       <AppbarA.Header>
-        {backItem && (
-          <AppbarA.BackAction onPress={() => _onPress(backItem)} />
-        )}
+        {backItem && <AppbarA.BackAction onPress={() => _onPress(backItem)} />}
         <AppbarA.Content title={topTitle || ''} />
         {actionItems.map((e) => (
-          <AppbarA.Action icon={e.icon} disabled={e.display === 'disabled'} onPress={() => _onPress(e)} key={e.name}/>
+          <AppbarA.Action
+            icon={e.icon}
+            disabled={e.display === 'disabled'}
+            onPress={() => _onPress(e)}
+            key={e.name}
+          />
         ))}
       </AppbarA.Header>
     );

@@ -1,21 +1,20 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { LottieAnimated } from "./LottieAnimated";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+
+import { LottieAnimated } from './LottieAnimated';
 
 type LottieAnimatedStory = ComponentStory<typeof LottieAnimated>;
 
 const LottieAnimatedMeta: ComponentMeta<typeof LottieAnimated> = {
-  title: "DeviceOnly-Containers/LottieAnimated",
+  title: 'DeviceOnly-Containers/LottieAnimated',
   component: LottieAnimated,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default LottieAnimatedMeta;
 
-
-export const Basic: LottieAnimatedStory = (args) => <LottieAnimated {...args} />;
-Basic.args = {
-};
+export const Basic: LottieAnimatedStory = (args) => (
+  <LottieAnimated {...args} />
+);
+Basic.args = {};

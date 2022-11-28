@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-
-import { TouchableRipple, Paragraph } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Paragraph, TouchableRipple } from 'react-native-paper';
 
 import ScreenWrapper from '../ScreenWrapper';
 

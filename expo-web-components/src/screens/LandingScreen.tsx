@@ -1,12 +1,13 @@
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 import {
   Background,
-  Logo,
   Header,
-  Paragraph,
   Layout,
+  Logo,
+  Paragraph,
 } from '../components/Basic';
 
 type Props = NativeStackScreenProps<MainStackParamList, 'Landing'>;
@@ -14,21 +15,20 @@ type Props = NativeStackScreenProps<MainStackParamList, 'Landing'>;
 const LandingScreen = ({ navigation }: Props) => (
   <Background source={require('./assets/background_dot.png')}>
     <Layout style={styles.container} navigation={navigation}>
-        <Logo source={require('./assets/logo.png')}/>
+      <Logo source={require('./assets/logo.png')} />
 
-        <Header>Landing Template</Header>
+      <Header>Landing Template</Header>
 
-        <Paragraph>
-          The easiest way to start with your amazing application.
-        </Paragraph>
-
+      <Paragraph>
+        The easiest way to start with your amazing application.
+      </Paragraph>
     </Layout>
   </Background>
 );
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: 'center',
   },
 });
 

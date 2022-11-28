@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import type {
   AnimatedFABAnimateFrom,

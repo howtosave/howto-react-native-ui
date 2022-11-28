@@ -1,10 +1,9 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
-
+import { ScrollView, StyleSheet, View } from 'react-native';
 import {
   Button,
-  Portal,
   Dialog,
+  Portal,
   RadioButton,
   TouchableRipple,
 } from 'react-native-paper';

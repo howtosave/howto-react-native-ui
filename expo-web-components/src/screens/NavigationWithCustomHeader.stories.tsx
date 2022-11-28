@@ -1,14 +1,15 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import NavigationWithCustomHeader from "./NavigationWithCustomHeader";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
 
-const NavigationWithCustomHeaderMeta: ComponentMeta<typeof NavigationWithCustomHeader> = {
-  title: "Navi/NavigationWithCustomHeader",
+import NavigationWithCustomHeader from './NavigationWithCustomHeader';
+
+const NavigationWithCustomHeaderMeta: ComponentMeta<
+  typeof NavigationWithCustomHeader
+> = {
+  title: 'Navi/NavigationWithCustomHeader',
   component: NavigationWithCustomHeader,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default NavigationWithCustomHeaderMeta;

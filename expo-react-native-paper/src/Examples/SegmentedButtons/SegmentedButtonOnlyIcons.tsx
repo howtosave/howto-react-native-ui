@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { List, SegmentedButtons } from 'react-native-paper';
 
 const SegmentedButtonOnlyIcons = () => {
   const [value, setValue] = React.useState('');
 
   return (
-    <List.Section title={`Segmented Button - only icons`}>
+    <List.Section title="Segmented Button - only icons">
       <SegmentedButtons
         onValueChange={setValue}
         style={styles.group}

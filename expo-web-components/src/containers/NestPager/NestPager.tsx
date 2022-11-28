@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Animated, Text } from 'react-native';
+import { Animated, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
 
 import { LikeCount } from '../../components/LikeCount/LikeCount';
@@ -8,8 +8,7 @@ const BGCOLOR = ['#fdc08e', '#fff6b9', '#99d1b7', '#dde5fe', '#f79273'];
 
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
-interface NestPagerProps {
-}
+interface NestPagerProps {}
 
 export const NestPager = ({}: NestPagerProps) => {
   return (
@@ -93,7 +92,7 @@ export const NestPager = ({}: NestPagerProps) => {
       </AnimatedPagerView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

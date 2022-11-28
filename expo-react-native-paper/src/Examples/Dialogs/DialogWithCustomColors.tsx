@@ -1,11 +1,10 @@
 import React from 'react';
-
 import {
   Button,
-  Portal,
   Dialog,
   MD2Colors,
   MD3Colors,
+  Portal,
 } from 'react-native-paper';
 
 import { useExampleTheme } from '../..';

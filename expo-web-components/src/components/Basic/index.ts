@@ -1,18 +1,18 @@
-import BackButton from "./BackButton";
-import Background from "./Background";
-import Button from "./Button";
-import Header from "./Header";
-import Logo from "./Logo";
-import Paragraph from "./Paragraph";
-import TextInput from "./TextInput";
-import Layout from "./Layout";
+import BackButton from './BackButton';
+import Background from './Background';
+import Button from './Button';
+import Header from './Header';
+import Layout from './Layout';
+import Logo from './Logo';
+import Paragraph from './Paragraph';
+import TextInput from './TextInput';
 export {
-  Layout,
   BackButton,
   Background,
   Button,
   Header,
+  Layout,
   Logo,
   Paragraph,
-  TextInput
+  TextInput,
 };

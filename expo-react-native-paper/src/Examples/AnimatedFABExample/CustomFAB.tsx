@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ViewStyle,
 } from 'react-native';
-
 import { AnimatedFAB } from 'react-native-paper';
 
 import { useExampleTheme } from '../..';
@@ -47,7 +46,7 @@ const CustomFAB = ({
 
   return (
     <AnimatedFAB
-      icon={'plus'}
+      icon="plus"
       label={label}
       extended={isExtended}
       uppercase={!isV3}

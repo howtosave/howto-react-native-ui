@@ -1,6 +1,5 @@
 import React from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
-
 import {
   Avatar,
   Button,
@@ -11,8 +10,8 @@ import {
   Text,
 } from 'react-native-paper';
 
-import { PreferencesContext, useExampleTheme } from '..';
 import { isWeb } from '../../utils';
+import { PreferencesContext, useExampleTheme } from '..';
 import ScreenWrapper from '../ScreenWrapper';
 
 type Mode = 'elevated' | 'outlined' | 'contained';

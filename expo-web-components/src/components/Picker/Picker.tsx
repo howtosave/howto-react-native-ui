@@ -1,6 +1,6 @@
+import { Picker as PickerA } from '@react-native-picker/picker';
 import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
-import { Picker as PickerA } from '@react-native-picker/picker';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 interface ItemType {
@@ -9,14 +9,17 @@ interface ItemType {
 }
 
 interface Props<T> {
-  selected: T,
-  items: T[],
-  onChange: (e:T, idx: number) => void,
+  selected: T;
+  items: T[];
+  onChange: (e: T, idx: number) => void;
   isDropdown?: boolean;
 }
 
 export const Picker = <T extends ItemType>({
-  selected, items, onChange, isDropdown=false,
+  selected,
+  items,
+  onChange,
+  isDropdown = false,
 }: Props<T>) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(selected.value);
@@ -44,8 +47,12 @@ export const Picker = <T extends ItemType>({
         onValueChange={onChange}
         style={styles.picker}
       >
-        {items.map(ex => (
-          <PickerA.Item key={ex.value} label={ex.label || `${ex.value}`} value={ex.value} />
+        {items.map((ex) => (
+          <PickerA.Item
+            key={ex.value}
+            label={ex.label || `${ex.value}`}
+            value={ex.value}
+          />
         ))}
       </PickerA>
     );

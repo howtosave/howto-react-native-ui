@@ -3,11 +3,10 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-
       // Needed by React Native Reanimated for web
       '@babel/plugin-proposal-export-namespace-from',
       // !!! Reanimated plugin has to be listed last.
-      'react-native-reanimated/plugin'
+      'react-native-reanimated/plugin',
     ],
   };
 };

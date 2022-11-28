@@ -1,16 +1,16 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import color from 'color';
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import {
-  Surface,
-  Title,
-  Caption,
-  Text,
   Avatar,
+  Caption,
+  Surface,
+  Text,
+  Title,
   TouchableRipple,
   useTheme,
 } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import color from 'color';
 
 type Props = {
   id: number;
@@ -29,20 +29,11 @@ type Props = {
 export const Twitt = (props: Props) => {
   const theme = useTheme();
 
-  const iconColor = color(theme.colors.text)
-    .alpha(0.54)
-    .rgb()
-    .string();
+  const iconColor = color(theme.colors.text).alpha(0.54).rgb().string();
 
-  const contentColor = color(theme.colors.text)
-    .alpha(0.8)
-    .rgb()
-    .string();
+  const contentColor = color(theme.colors.text).alpha(0.8).rgb().string();
 
-  const imageBorderColor = color(theme.colors.text)
-    .alpha(0.15)
-    .rgb()
-    .string();
+  const imageBorderColor = color(theme.colors.text).alpha(0.15).rgb().string();
 
   return (
     <TouchableRipple onPress={() => props.onPress(props.id)}>

@@ -1,14 +1,13 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import NavigationWithDrawer from "./NavigationWithDrawer";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+
+import NavigationWithDrawer from './NavigationWithDrawer';
 
 const NavigationWithDrawerMeta: ComponentMeta<typeof NavigationWithDrawer> = {
-  title: "Navi/NavigationWithDrawer",
+  title: 'Navi/NavigationWithDrawer',
   component: NavigationWithDrawer,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default NavigationWithDrawerMeta;

@@ -1,4 +1,3 @@
-
 module.exports = function (api) {
   api.cache(true);
 
@@ -11,7 +10,10 @@ module.exports = function (api) {
           extensions: ['.tsx', '.ts', '.js', '.json'],
         },
       ],
-      ['react-native-reanimated/plugin'],
+      // Needed by React Native Reanimated for web
+      '@babel/plugin-proposal-export-namespace-from',
+      // !!! Reanimated plugin has to be listed last.
+      'react-native-reanimated/plugin',
     ],
   };
 };

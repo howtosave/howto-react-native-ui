@@ -1,17 +1,17 @@
-import React, { memo, useState } from 'react';
-import { Text, StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import {
-  Background,
-  Logo,
-  Header,
-  Paragraph,
-  Button,
-  BackButton,
-  TextInput,
-  Layout,
-} from '../components/Basic';
+import React, { memo, useState } from 'react';
+import { Platform, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
+import {
+  BackButton,
+  Background,
+  Button,
+  Header,
+  Layout,
+  Logo,
+  Paragraph,
+  TextInput,
+} from '../components/Basic';
 import { emailValidator } from '../libs/input-validator';
 import { theme } from '../theme';
 
@@ -34,7 +34,7 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
   return (
     <Background source={require('./assets/background_dot.png')}>
       <Layout style={styles.container} navigation={navigation}>
-        <Logo source={require('./assets/logo.png')}/>
+        <Logo source={require('./assets/logo.png')} />
 
         <Header>Restore Password</Header>
 
@@ -43,7 +43,7 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
           label="E-mail address"
           returnKeyType="done"
           value={email.value}
-          onChangeText={text => setEmail({ value: text, error: '' })}
+          onChangeText={(text) => setEmail({ value: text, error: '' })}
           error={!!email.error}
           errorText={email.error}
           autoCapitalize="none"
@@ -69,7 +69,7 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: Platform.select({
       // N.B.
       // - react-navigation stack을 사용할, 때 이 값이 'center' 일 경우 웹 버전에서 화면이 짤리는 현상이 발생함

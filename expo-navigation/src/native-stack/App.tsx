@@ -1,8 +1,11 @@
-import * as React from 'react';
-import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import type {
+  NativeStackNavigationOptions,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import type { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import * as React from 'react';
+import { Button, Text, View } from 'react-native';
 
 type RootStackParamList = {
   Home: undefined;
@@ -53,25 +56,24 @@ function AboutScreen({ navigation, route }: AboutProps) {
 //
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-const naviOptions: NativeStackNavigationOptions = { 
-  title: 'Overview' 
+const naviOptions: NativeStackNavigationOptions = {
+  title: 'Overview',
 };
-
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
           options={naviOptions}
         />
-        <Stack.Screen 
-          name="About" 
+        <Stack.Screen
+          name="About"
           component={AboutScreen}
           options={({ route }) => ({
-            title: route?.params?.param
+            title: route?.params?.param,
           })}
         />
       </Stack.Navigator>

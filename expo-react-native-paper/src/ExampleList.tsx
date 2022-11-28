@@ -1,10 +1,10 @@
+import type { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { FlatList } from 'react-native';
-
-import type { StackNavigationProp } from '@react-navigation/stack';
 import { Divider, List } from 'react-native-paper';
 import { useSafeArea } from 'react-native-safe-area-context';
 
+import { useExampleTheme } from '.';
 import ActivityIndicatorExample from './Examples/ActivityIndicatorExample';
 import AnimatedFABExample from './Examples/AnimatedFABExample';
 import AppbarExample from './Examples/AppbarExample';
@@ -41,8 +41,6 @@ import TextInputExample from './Examples/TextInputExample';
 import ThemeExample from './Examples/ThemeExample';
 import ToggleButtonExample from './Examples/ToggleButtonExample';
 import TouchableRippleExample from './Examples/TouchableRippleExample';
-
-import { useExampleTheme } from '.';
 
 export const examples: Record<
   string,

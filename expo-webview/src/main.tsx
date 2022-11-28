@@ -1,14 +1,13 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { Button, View } from 'react-native';
 
-import WebViewScreen from './web-view';
-import WebBrowserScreen from './web-browser';
 import ViewPagerScreen from './view-pager';
-import { View, Button } from 'react-native';
-
+import WebBrowserScreen from './web-browser';
+import WebViewScreen from './web-view';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,10 +18,10 @@ type Page = {
 };
 
 const pages: Page[] = [
-  {name: 'Home', component: HomeScreen, params: {} },
-  {name: 'WebView', component: WebViewScreen, params: {} },
-  {name: 'WebBrowser', component: WebBrowserScreen, params: {} },
-  {name: 'ViewPager', component: ViewPagerScreen, params: {} },
+  { name: 'Home', component: HomeScreen, params: {} },
+  { name: 'WebView', component: WebViewScreen, params: {} },
+  { name: 'WebBrowser', component: WebBrowserScreen, params: {} },
+  { name: 'ViewPager', component: ViewPagerScreen, params: {} },
 ];
 
 type PageParam = {
@@ -33,9 +32,13 @@ type HomeProps = NativeStackScreenProps<PageParam, 'Home'>;
 
 function HomeScreen({ navigation }: HomeProps) {
   return (
-    <View style={{flex: 1}}>
-      { pages.map((page) => (
-        <Button title={`go to ${page.name}`} onPress={() => navigation.navigate(page.name, page.params)} key={page.name}/>
+    <View style={{ flex: 1 }}>
+      {pages.map((page) => (
+        <Button
+          title={`go to ${page.name}`}
+          onPress={() => navigation.navigate(page.name, page.params)}
+          key={page.name}
+        />
       ))}
     </View>
   );
@@ -46,10 +49,14 @@ const Main = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         {pages.map((page) => (
-          <Stack.Screen name={page.name} component={page.component} key={page.name} />
+          <Stack.Screen
+            name={page.name}
+            component={page.component}
+            key={page.name}
+          />
         ))}
       </Stack.Navigator>
-      <StatusBar style={'auto'} />
+      <StatusBar style="auto" />
     </NavigationContainer>
   );
 };

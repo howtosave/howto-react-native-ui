@@ -1,3 +1,4 @@
+import type { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import {
   Dimensions,
@@ -7,15 +8,13 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-
-import type { StackNavigationProp } from '@react-navigation/stack';
 import { Appbar, BottomNavigation, Menu } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useExampleTheme } from '..';
 import ScreenWrapper from '../ScreenWrapper';
 
-type RoutesState = Array<{
+type RoutesState = {
   key: string;
   title: string;
   focusedIcon: string;
@@ -24,7 +23,7 @@ type RoutesState = Array<{
   badge?: boolean;
   getAccessibilityLabel?: string;
   getTestID?: string;
-}>;
+}[];
 
 type Route = { route: { key: string } };
 

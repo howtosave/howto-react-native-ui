@@ -1,10 +1,17 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createNativeStackNavigator, NativeStackHeaderProps, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
-import { Text } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
+import {
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+} from '@react-navigation/drawer';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import {
+  createNativeStackNavigator,
+  NativeStackHeaderProps,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+import { Text } from 'react-native';
 
 type NavigationTestProps = {
   screen?: ScreenName;
@@ -12,16 +19,14 @@ type NavigationTestProps = {
 type Story = ComponentStory<typeof NavigationTest>;
 
 const NavigationTest: React.FC<NavigationTestProps> = (props) => {
-  return <></>
-}
+  return <></>;
+};
 
 const NavigationTestMeta: ComponentMeta<typeof NavigationTest> = {
-  title: "Navi/NavigationTest",
+  title: 'Navi/NavigationTest',
   component: NavigationTest,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 export default NavigationTestMeta;
 
@@ -60,7 +65,7 @@ const DrawerStackNavi = (props: NavigationTestProps) => (
       ))}
     </DrawerStack.Navigator>
   </NavigationContainer>
-)
+);
 export const DrawerStackStory: Story = (args) => <DrawerStackNavi {...args} />;
 DrawerStackStory.args = {
   screen: 'Screen1',

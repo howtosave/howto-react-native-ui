@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dimensions, ScrollView, StyleSheet } from 'react-native';
-
-import { Button, Portal, Dialog } from 'react-native-paper';
+import { Button, Dialog, Portal } from 'react-native-paper';
 
 import { TextComponent } from './DialogTextComponent';
 

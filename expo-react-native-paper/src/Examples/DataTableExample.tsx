@@ -1,16 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import { DataTable, Card } from 'react-native-paper';
+import { Card, DataTable } from 'react-native-paper';
 
 import ScreenWrapper from '../ScreenWrapper';
 
-type ItemsState = Array<{
+type ItemsState = {
   key: number;
   name: string;
   calories: number;
   fat: number;
-}>;
+}[];
 
 const DataTableExample = () => {
   const [sortAscending, setSortAscending] = React.useState<boolean>(true);
@@ -104,7 +103,7 @@ const DataTableExample = () => {
             numberOfItemsPerPage={itemsPerPage}
             onItemsPerPageChange={onItemsPerPageChange}
             showFastPaginationControls
-            selectPageDropdownLabel={'Rows per page'}
+            selectPageDropdownLabel="Rows per page"
           />
         </DataTable>
       </Card>

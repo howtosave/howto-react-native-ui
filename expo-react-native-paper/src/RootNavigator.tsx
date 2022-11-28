@@ -1,12 +1,11 @@
-import React from 'react';
-import { Platform } from 'react-native';
-
 import type { DrawerNavigationProp } from '@react-navigation/drawer';
 import { getHeaderTitle } from '@react-navigation/elements';
 import {
   CardStyleInterpolators,
   createStackNavigator,
 } from '@react-navigation/stack';
+import React from 'react';
+import { Platform } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import ExampleList, { examples } from './ExampleList';
@@ -55,7 +54,7 @@ export default function Root() {
           title: 'Examples',
         }}
       />
-      {(Object.keys(examples) as Array<keyof typeof examples>).map((id) => (
+      {(Object.keys(examples) as (keyof typeof examples)[]).map((id) => (
         <Stack.Screen
           key={id}
           name={id}

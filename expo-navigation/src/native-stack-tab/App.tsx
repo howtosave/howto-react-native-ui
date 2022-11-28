@@ -1,10 +1,13 @@
-import * as React from 'react';
-import { View, Text, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import type { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import type {
+  NativeStackNavigationOptions,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as React from 'react';
+import { Button, Text, View } from 'react-native';
 
 type RootStackParamList = {
   Main: undefined;
@@ -22,7 +25,6 @@ type AboutTabParamList = {
   AboutDetails: undefined;
 };
 
-
 //
 // Screens
 //
@@ -32,8 +34,8 @@ const MainScreen = ({ navigation }: MainProps) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Text>Main</Text>
     <View style={{ height: 100, justifyContent: 'space-between' }}>
-      <Button title={'Home'} onPress={() => navigation.navigate('HomeTab')}/>
-      <Button title={'About'} onPress={() => navigation.navigate('AboutTab')}/>
+      <Button title="Home" onPress={() => navigation.navigate('HomeTab')} />
+      <Button title="About" onPress={() => navigation.navigate('AboutTab')} />
     </View>
   </View>
 );
@@ -54,7 +56,10 @@ const HomeDetailsScreen = ({ navigation }: HomeDetailsProps) => (
 );
 
 type AboutProps = NativeStackScreenProps<AboutTabParamList, 'About'>;
-type AboutDetailsProps = NativeStackScreenProps<AboutTabParamList, 'AboutDetails'>;
+type AboutDetailsProps = NativeStackScreenProps<
+  AboutTabParamList,
+  'AboutDetails'
+>;
 
 const AboutScreen = ({ navigation }: AboutProps) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -75,45 +80,39 @@ const AboutDetailsScreen = ({ navigation }: AboutDetailsProps) => (
 const HomeTab = createBottomTabNavigator<HomeTabParamList>();
 const HomeTabScreen = () => (
   <HomeTab.Navigator>
-    <HomeTab.Screen name="Home" component={HomeScreen}/>
-    <HomeTab.Screen name="HomeDetails" component={HomeDetailsScreen}/>
+    <HomeTab.Screen name="Home" component={HomeScreen} />
+    <HomeTab.Screen name="HomeDetails" component={HomeDetailsScreen} />
   </HomeTab.Navigator>
-)
+);
 
 const AboutTab = createBottomTabNavigator<AboutTabParamList>();
 const AboutTabScreen = () => (
   <AboutTab.Navigator>
-    <AboutTab.Screen name="About" component={AboutScreen}/>
-    <AboutTab.Screen name="AboutDetails" component={AboutDetailsScreen}/>
+    <AboutTab.Screen name="About" component={AboutScreen} />
+    <AboutTab.Screen name="AboutDetails" component={AboutDetailsScreen} />
   </AboutTab.Navigator>
-)
+);
 
 //
 // Navigation
 //
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
-const naviOptions: NativeStackNavigationOptions = { 
-  title: 'Overview' 
+const naviOptions: NativeStackNavigationOptions = {
+  title: 'Overview',
 };
 
 function App() {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen 
-          name="Main" 
-          component={MainScreen} 
+        <RootStack.Screen
+          name="Main"
+          component={MainScreen}
           options={naviOptions}
         />
-        <RootStack.Screen 
-          name="HomeTab" 
-          component={HomeTabScreen}
-        />
-        <RootStack.Screen 
-          name="AboutTab" 
-          component={AboutTabScreen}
-        />
+        <RootStack.Screen name="HomeTab" component={HomeTabScreen} />
+        <RootStack.Screen name="AboutTab" component={AboutTabScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

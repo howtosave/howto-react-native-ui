@@ -1,21 +1,23 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import LoginScreen from "./LoginScreen";
+
+import LoginScreen from './LoginScreen';
 
 const LoginScreenMeta: ComponentMeta<typeof LoginScreen> = {
-  title: "Screens/Login",
+  title: 'Screens/Login',
   component: LoginScreen,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default LoginScreenMeta;
 
 type Story = ComponentStory<typeof LoginScreen>;
 
-export const Basic: Story = (args) => <SafeAreaProvider><LoginScreen {...args} /></SafeAreaProvider>;
-Basic.args = {
-};
+export const Basic: Story = (args) => (
+  <SafeAreaProvider>
+    <LoginScreen {...args} />
+  </SafeAreaProvider>
+);
+Basic.args = {};

@@ -1,14 +1,14 @@
-import React from 'react';
-import color from 'color';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { useTheme, Portal, FAB } from 'react-native-paper';
+import { RouteProp, useIsFocused } from '@react-navigation/native';
+import color from 'color';
+import React from 'react';
+import { FAB, Portal, useTheme } from 'react-native-paper';
 import { useSafeArea } from 'react-native-safe-area-context';
-import { useIsFocused, RouteProp } from '@react-navigation/native';
 
-import overlay from './overlay';
 import { Feed } from './feed';
 import { Message } from './message';
 import { Notifications } from './notifications';
+import overlay from './overlay';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -45,12 +45,9 @@ export const BottomTabs = (props: Props) => {
       <Tab.Navigator
         initialRouteName="Feed"
         backBehavior="initialRoute"
-        shifting={true}
+        shifting
         activeColor={theme.colors.primary}
-        inactiveColor={color(theme.colors.shadow)
-          .alpha(0.6)
-          .rgb()
-          .string()}
+        inactiveColor={color(theme.colors.shadow).alpha(0.6).rgb().string()}
         sceneAnimationEnabled={false}
       >
         <Tab.Screen

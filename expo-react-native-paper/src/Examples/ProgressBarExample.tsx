@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
-
+import { Animated, StyleSheet, View } from 'react-native';
 import {
   Button,
-  ProgressBar,
-  Paragraph,
   MD2Colors,
   MD3Colors,
+  Paragraph,
+  ProgressBar,
   ProgressBarProps,
 } from 'react-native-paper';
 

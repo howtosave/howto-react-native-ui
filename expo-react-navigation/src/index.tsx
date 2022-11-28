@@ -35,10 +35,10 @@ import {
   Text,
 } from 'react-native';
 import {
-  MD3DarkTheme as PaperDarkTheme,
   DefaultTheme as PaperLightTheme,
   Divider,
   List,
+  MD3DarkTheme as PaperDarkTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';

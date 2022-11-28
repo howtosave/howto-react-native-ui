@@ -1,14 +1,14 @@
+import color from 'color';
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import {
+  Avatar,
+  Caption,
+  Subheading,
   Surface,
   Title,
-  Caption,
-  Avatar,
-  Subheading,
   useTheme,
 } from 'react-native-paper';
-import color from 'color';
 
 type Props = {
   id: number;
@@ -26,15 +26,9 @@ type Props = {
 export const DetailedTwitt = (props: Props) => {
   const theme = useTheme();
 
-  const contentColor = color(theme.colors.text)
-    .alpha(0.8)
-    .rgb()
-    .string();
+  const contentColor = color(theme.colors.text).alpha(0.8).rgb().string();
 
-  const imageBorderColor = color(theme.colors.text)
-    .alpha(0.15)
-    .rgb()
-    .string();
+  const imageBorderColor = color(theme.colors.text).alpha(0.15).rgb().string();
 
   return (
     <Surface style={styles.container}>

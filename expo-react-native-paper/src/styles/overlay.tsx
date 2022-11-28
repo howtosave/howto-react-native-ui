@@ -1,6 +1,5 @@
-import { Animated } from 'react-native';
-
 import color from 'color';
+import { Animated } from 'react-native';
 
 import { MD2DarkTheme } from './themes/v2/DarkTheme';
 

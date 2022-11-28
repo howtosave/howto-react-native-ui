@@ -1,7 +1,6 @@
+import type { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import type { StackNavigationProp } from '@react-navigation/stack';
 import { Caption, Searchbar, Text } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

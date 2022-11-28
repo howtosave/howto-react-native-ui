@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import { Snackbar, Button } from 'react-native-paper';
+import { Button, Snackbar } from 'react-native-paper';
 
 import ScreenWrapper from '../ScreenWrapper';
 

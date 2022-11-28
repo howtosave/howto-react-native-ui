@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-
 import { Button, List } from 'react-native-paper';
 
 import { useExampleTheme } from '..';
@@ -191,7 +190,7 @@ const ButtonExample = () => {
         </View>
       </List.Section>
       {theme.isV3 && (
-        <List.Section title={'Elevated button (elevated)'}>
+        <List.Section title="Elevated button (elevated)">
           <View style={styles.row}>
             <Button mode="elevated" onPress={() => {}} style={styles.button}>
               Default

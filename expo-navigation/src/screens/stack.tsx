@@ -1,10 +1,10 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { Appbar, Avatar, useTheme } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { BottomTabs } from './bottomTabs';
 import { Details } from './details';
@@ -17,7 +17,6 @@ export const StackNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="FeedList"
-      
       screenOptions={{
         header: ({ route, options, back, navigation }) => {
           const title =
@@ -40,14 +39,15 @@ export const StackNavigator = () => {
                 <TouchableOpacity
                   style={{ marginLeft: 10 }}
                   onPress={() => {
-                    ((navigation as any) as DrawerNavigationProp<{}>).openDrawer();
+                    (
+                      navigation as any as DrawerNavigationProp<{}>
+                    ).openDrawer();
                   }}
                 >
                   <Avatar.Image
                     size={40}
                     source={{
-                      uri:
-                        'https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg',
+                      uri: 'https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg',
                     }}
                   />
                 </TouchableOpacity>
@@ -74,7 +74,7 @@ export const StackNavigator = () => {
             </Appbar.Header>
           );
         },
-        headerMode:"screen",
+        headerMode: 'screen',
       }}
     >
       <Stack.Screen

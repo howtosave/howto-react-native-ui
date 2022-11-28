@@ -1,17 +1,24 @@
-import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Platform } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { memo, useState } from 'react';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
 import {
   Background,
-  Logo,
-  Header,
-  Paragraph,
   Button,
-  TextInput,
+  Header,
   Layout,
+  Logo,
+  Paragraph,
+  TextInput,
 } from '../components/Basic';
-import { theme } from '../theme';
 import { emailValidator, passwordValidator } from '../libs/input-validator';
+import { theme } from '../theme';
 
 type Props = NativeStackScreenProps<MainStackParamList, 'Login'>;
 
@@ -34,8 +41,12 @@ const LoginScreen = ({ navigation }: Props) => {
 
   return (
     <Background source={require('./assets/background_dot.png')}>
-      <Layout style={styles.container} navigation={navigation} withKeyboardAvoidingView>
-        <Logo source={require('./assets/logo.png')}/>
+      <Layout
+        style={styles.container}
+        navigation={navigation}
+        withKeyboardAvoidingView
+      >
+        <Logo source={require('./assets/logo.png')} />
 
         <Header>Welcome back.</Header>
 
@@ -44,7 +55,7 @@ const LoginScreen = ({ navigation }: Props) => {
           label="Email"
           returnKeyType="next"
           value={email.value}
-          onChangeText={text => setEmail({ value: text, error: '' })}
+          onChangeText={(text) => setEmail({ value: text, error: '' })}
           error={!!email.error}
           errorText={email.error}
           autoCapitalize="none"
@@ -58,7 +69,7 @@ const LoginScreen = ({ navigation }: Props) => {
           label="Password"
           returnKeyType="done"
           value={password.value}
-          onChangeText={text => setPassword({ value: text, error: '' })}
+          onChangeText={(text) => setPassword({ value: text, error: '' })}
           error={!!password.error}
           errorText={password.error}
           secureTextEntry
@@ -72,7 +83,11 @@ const LoginScreen = ({ navigation }: Props) => {
           </TouchableOpacity>
         </View>
 
-        <Button mode="contained" onPress={_onLoginPressed} style={styles.button}>
+        <Button
+          mode="contained"
+          onPress={_onLoginPressed}
+          style={styles.button}
+        >
           Login
         </Button>
 

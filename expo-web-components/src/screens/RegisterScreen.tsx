@@ -1,21 +1,28 @@
-import React, { memo, useState } from 'react';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { View, Text, StyleSheet, Platform, TouchableOpacity } from 'react-native';
+import React, { memo, useState } from 'react';
 import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+import {
+  BackButton,
   Background,
-  Logo,
+  Button,
   Header,
   Layout,
-  Button,
-  BackButton,
+  Logo,
   TextInput,
 } from '../components/Basic';
-import { theme } from '../theme';
 import {
   emailValidator,
-  passwordValidator,
   nameValidator,
+  passwordValidator,
 } from '../libs/input-validator';
+import { theme } from '../theme';
 
 type Props = NativeStackScreenProps<MainStackParamList, 'Register'>;
 
@@ -41,8 +48,12 @@ const RegisterScreen = ({ navigation }: Props) => {
 
   return (
     <Background source={require('./assets/background_dot.png')}>
-      <Layout style={styles.container} navigation={navigation} withKeyboardAvoidingView >
-        <Logo source={require('./assets/logo.png')}/>
+      <Layout
+        style={styles.container}
+        navigation={navigation}
+        withKeyboardAvoidingView
+      >
+        <Logo source={require('./assets/logo.png')} />
 
         <Header>Create Account</Header>
 
@@ -51,7 +62,7 @@ const RegisterScreen = ({ navigation }: Props) => {
           label="Name"
           returnKeyType="next"
           value={name.value}
-          onChangeText={text => setName({ value: text, error: '' })}
+          onChangeText={(text) => setName({ value: text, error: '' })}
           error={!!name.error}
           errorText={name.error}
         />
@@ -61,7 +72,7 @@ const RegisterScreen = ({ navigation }: Props) => {
           label="Email"
           returnKeyType="next"
           value={email.value}
-          onChangeText={text => setEmail({ value: text, error: '' })}
+          onChangeText={(text) => setEmail({ value: text, error: '' })}
           error={!!email.error}
           errorText={email.error}
           autoCapitalize="none"
@@ -75,13 +86,17 @@ const RegisterScreen = ({ navigation }: Props) => {
           label="Password"
           returnKeyType="done"
           value={password.value}
-          onChangeText={text => setPassword({ value: text, error: '' })}
+          onChangeText={(text) => setPassword({ value: text, error: '' })}
           error={!!password.error}
           errorText={password.error}
           secureTextEntry
         />
 
-        <Button mode="contained" onPress={_onSignUpPressed} style={styles.button}>
+        <Button
+          mode="contained"
+          onPress={_onSignUpPressed}
+          style={styles.button}
+        >
           Sign Up
         </Button>
 
@@ -98,7 +113,7 @@ const RegisterScreen = ({ navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: Platform.select({
       // N.B.
       // - react-navigation stack을 사용할, 때 이 값이 'center' 일 경우 웹 버전에서 화면이 짤리는 현상이 발생함

@@ -1,8 +1,11 @@
-import * as React from 'react';
-import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import type {
+  NativeStackNavigationOptions,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import type { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import * as React from 'react';
+import { Button, Text, View } from 'react-native';
 
 type RootStackParamList = {
   Home: undefined;
@@ -59,10 +62,7 @@ function AboutScreen({ navigation, route }: AboutProps) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>About Screen: Param is {param || 'NULL'}</Text>
       {setCount && (
-        <Button
-          title="Set Cound"
-          onPress={() => setCount((c) => c + 1)}
-        />
+        <Button title="Set Cound" onPress={() => setCount((c) => c + 1)} />
       )}
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
@@ -71,9 +71,7 @@ function AboutScreen({ navigation, route }: AboutProps) {
 
 type LogoTitleProps = {};
 function LogoTitle(props: LogoTitleProps) {
-  return (
-    <Text>Logo</Text>
-  )
+  return <Text>Logo</Text>;
 }
 //
 // Navigation
@@ -84,12 +82,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const naviOptions: NativeStackNavigationOptions = {
   headerTitle: (props: LogoTitleProps) => <LogoTitle {...props} />,
   // Add a placeholder button without the `onPress` to avoid flicker
-  headerRight: () => (
-    <Button
-      title="Update count"
-      color="#00f"
-    />
-  ),
+  headerRight: () => <Button title="Update count" color="#00f" />,
   headerStyle: {
     backgroundColor: '#f4511e',
   },
@@ -100,22 +93,22 @@ const naviOptions: NativeStackNavigationOptions = {
   // props for back button
   // headerBackTitleStyle:
   // headerBackTitle:
-}
+};
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
           options={{ title: 'Overview', ...naviOptions }}
         />
-        <Stack.Screen 
-          name="About" 
+        <Stack.Screen
+          name="About"
           component={AboutScreen}
           options={({ route }) => ({
-            title: route?.params?.param
+            title: route?.params?.param,
           })}
         />
       </Stack.Navigator>

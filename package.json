@@ -1,21 +1,21 @@
 {
-  "name": "howto-react-native-ui",
+  "description": "Copper React Native Client",
   "private": true,
-  "repository": "git@howtosave.github.com:howtosave/howto-react-native-ui.git",
-  "author": "peterhs.kang <peterhs.kang@gmail.com>",
-  "license": "MIT",
   "scripts": {
-    "js": "yarn workspace expo-js",
-    "react-navigation": "yarn workspace expo-react-navigation",
-    "dev": "expo start ./expo-js --android",
-    "build:sb": "lerna run sb:build --scope expo-web-components",
-    "lint": "eslint \"app-*/**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"expo-*/**/*.{js,ts,tsx}\"",
     "types": "tsc --noEmit --composite false",
     "test": "jest --passWithNoTests",
     "clean": "lerna run clean",
     "build": "lerna run prepack",
     "publish": "lerna publish",
-    "release": "run-s clean build publish"
+    "release": "run-s clean build publish",
+    "navi": "yarn workspace expo-navigation",
+    "webview": "yarn workspace expo-webview",
+    "victory": "yarn workspace expo-victory-charts",
+    "navigation": "yarn workspace expo-react-navigation",
+    "components": "yarn workspace expo-web-components",
+    "paper": "yarn workspace expo-react-native-paper",
+    "js": "yarn workspace expo-js"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -37,15 +37,14 @@
     "react-native": "0.70.5"
   },
   "engines": {
-    "yarn": "3.2.2",
-    "node": ">=18"
+    "yarn": ">=1.21",
+    "node": ">=16"
   },
-  "packageManager": "yarn@3.2.2",
-  "workspaces": {
-    "packages": [
-      "expo-*"
-    ]
-  },
+  "workspaces": [
+    "packages/*",
+    "libs/*",
+    "expo-*"
+  ],
   "jest": {
     "testEnvironment": "node",
     "testRegex": "/__tests__/.*\\.(test|spec)\\.(js|tsx?)$",

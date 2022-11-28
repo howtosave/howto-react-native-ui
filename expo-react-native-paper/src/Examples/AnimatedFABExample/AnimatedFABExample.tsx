@@ -1,7 +1,6 @@
 import React from 'react';
 import type { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { Animated, FlatList, Platform, StyleSheet, View } from 'react-native';
-
 import {
   Avatar,
   MD2Colors,
@@ -11,8 +10,8 @@ import {
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { useExampleTheme } from '../..';
 import { animatedFABExampleData } from '../../../utils';
+import { useExampleTheme } from '../..';
 import CustomFAB from './CustomFAB';
 import CustomFABControls, {
   Controls,
@@ -161,7 +160,7 @@ const AnimatedFABExample = () => {
         visible={visible}
         animatedValue={velocity}
         extended={extended}
-        label={'New Message'}
+        label="New Message"
         animateFrom={animateFrom}
         iconMode={iconMode}
       />

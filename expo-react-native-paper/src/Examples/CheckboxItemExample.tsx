@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { Checkbox } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

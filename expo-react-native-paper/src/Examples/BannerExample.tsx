@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dimensions, Image, Platform, StyleSheet, View } from 'react-native';
-
 import { Banner, FAB, MD2Colors, MD3Colors } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

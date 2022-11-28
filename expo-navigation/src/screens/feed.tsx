@@ -1,6 +1,6 @@
-import React from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
 import { Twitt } from '../components/twitt';
@@ -23,7 +23,7 @@ type Props = {
 export const Feed = (props: Props) => {
   const theme = useTheme();
 
-  const data = twitts.map(twittProps => ({
+  const data = twitts.map((twittProps) => ({
     ...twittProps,
     onPress: () =>
       props.navigation &&

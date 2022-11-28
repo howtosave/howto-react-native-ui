@@ -1,13 +1,13 @@
-import React from 'react';
 import color from 'color';
+import React from 'react';
 import { Dimensions } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import type { MD3Theme } from 'react-native-paper';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { useTheme } from 'react-native-paper';
+import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 
-import overlay from './overlay';
-import { Feed } from './feed';
 import { AllNotifications } from './all';
+import { Feed } from './feed';
+import overlay from './overlay';
 
 const initialLayout = { width: Dimensions.get('window').width };
 

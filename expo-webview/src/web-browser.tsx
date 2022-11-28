@@ -1,16 +1,20 @@
 /**
  * See https://docs.expo.dev/versions/v47.0.0/sdk/webbrowser/
  */
-import React, { useState } from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
-import { openBrowserAsync } from 'expo-web-browser';
 import Constants from 'expo-constants';
+import { openBrowserAsync } from 'expo-web-browser';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-type AsyncReturnType<T extends (...args: any) => Promise<any>> =
-    T extends (...args: any) => Promise<infer R> ? R : any
+type AsyncReturnType<T extends (...args: any) => Promise<any>> = T extends (
+  ...args: any
+) => Promise<infer R>
+  ? R
+  : any;
 
 export default function WebBrowserScreen() {
-  const [result, setResult] = useState<AsyncReturnType<typeof openBrowserAsync>>();
+  const [result, setResult] =
+    useState<AsyncReturnType<typeof openBrowserAsync>>();
 
   const _handlePressButtonAsync = async () => {
     let result = await openBrowserAsync('https://expo.dev');

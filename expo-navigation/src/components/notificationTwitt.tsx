@@ -1,26 +1,23 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Surface, Text, Avatar, useTheme } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import color from 'color';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Avatar, Surface, Text, useTheme } from 'react-native-paper';
 
 type Props = {
   id: number;
   name: string;
   content: string;
-  people: Array<{
+  people: {
     name: string;
     image: string;
-  }>;
+  }[];
 };
 
 export const NotificationTwitt = (props: Props) => {
   const theme = useTheme();
 
-  const contentColor = color(theme.colors.text)
-    .alpha(0.8)
-    .rgb()
-    .string();
+  const contentColor = color(theme.colors.text).alpha(0.8).rgb().string();
 
   return (
     <Surface style={styles.container}>

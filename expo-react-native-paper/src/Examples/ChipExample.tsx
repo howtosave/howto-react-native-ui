@@ -1,7 +1,6 @@
+import color from 'color';
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-
-import color from 'color';
 import { Chip, List, MD2Colors, MD3Colors, Snackbar } from 'react-native-paper';
 
 import { useExampleTheme } from '..';

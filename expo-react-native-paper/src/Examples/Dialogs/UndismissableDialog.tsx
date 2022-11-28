@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Button, Portal, Dialog, MD2Colors } from 'react-native-paper';
+import { Button, Dialog, MD2Colors, Portal } from 'react-native-paper';
 
 import { TextComponent } from './DialogTextComponent';
 

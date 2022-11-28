@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import {
+  Animated,
+  Dimensions,
+  Image,
+  ImageRequireSource,
   StyleSheet,
   Text,
   View,
-  Image,
-  Dimensions,
-  Animated,
-  ImageRequireSource,
 } from 'react-native';
 import type { PagerViewOnPageScrollEventData } from 'react-native-pager-view';
 import PagerView from 'react-native-pager-view';
@@ -226,10 +226,9 @@ const Pagination = ({
 
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
-interface HeadphoneCarouselProps {
-}
+interface HeadphoneCarouselProps {}
 
-export const HeadphoneCarousel = ({ }: HeadphoneCarouselProps) => {
+export const HeadphoneCarousel = ({}: HeadphoneCarouselProps) => {
   const scrollOffsetAnimatedValue = React.useRef(new Animated.Value(0)).current;
   const positionAnimatedValue = React.useRef(new Animated.Value(0)).current;
 

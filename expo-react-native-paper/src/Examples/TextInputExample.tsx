@@ -6,7 +6,6 @@ import {
   Text,
   View,
 } from 'react-native';
-
 import {
   HelperText,
   List,
@@ -16,8 +15,8 @@ import {
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { useExampleTheme } from '..';
 import { inputReducer, State } from '../../utils';
+import { useExampleTheme } from '..';
 import ScreenWrapper from '../ScreenWrapper';
 
 const MAX_LENGTH = 20;
@@ -140,7 +139,7 @@ const TextInputExample = () => {
   return (
     <TextInputAvoidingView>
       <ScreenWrapper
-        keyboardShouldPersistTaps={'always'}
+        keyboardShouldPersistTaps="always"
         removeClippedSubviews={false}
       >
         <List.Section title="Flat inputs">

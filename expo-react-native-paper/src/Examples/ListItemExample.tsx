@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-
-import { List, Divider, Checkbox, Avatar, Switch } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Avatar, Checkbox, Divider, List, Switch } from 'react-native-paper';
 
 import ScreenWrapper from '../ScreenWrapper';
 

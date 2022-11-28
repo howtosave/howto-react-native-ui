@@ -1,13 +1,13 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import {
-  VictoryChart,
-  VictoryArea,
-  VictoryStack,
-  VictoryLegend,
-  VictoryTheme,
-} from "victory-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import type { VictoryAreaProps, VictoryLegendProps } from 'victory';
+import {
+  VictoryArea,
+  VictoryChart,
+  VictoryLegend,
+  VictoryStack,
+  VictoryTheme,
+} from 'victory-native';
 
 type ChartData = VictoryAreaProps['data'][];
 type AreaStyle = VictoryAreaProps['style'];
@@ -21,32 +21,32 @@ interface ChartAreaProps {
   legendPos?: {
     x?: number;
     y?: number;
-  }
+  };
 }
 
-export const ChartArea = ({ data, style, title, legend, legendPos }: ChartAreaProps) => {
+export const ChartArea = ({
+  data,
+  style,
+  title,
+  legend,
+  legendPos,
+}: ChartAreaProps) => {
   const isStacked = data.length > 1;
 
   return (
     <VictoryChart theme={VictoryTheme.material}>
       {isStacked ? (
-        <VictoryStack
-        >
+        <VictoryStack>
           {data.map((d, idx) => (
-            <VictoryArea
-              style={style}
-              data={d}
-              key={idx}
-            />
+            <VictoryArea style={style} data={d} key={idx} />
           ))}
         </VictoryStack>
       ) : (
-        <VictoryArea
-          data={data[0]}
-        />
+        <VictoryArea data={data[0]} />
       )}
       {(title || legend) && (
-        <VictoryLegend {...(legendPos || {})}
+        <VictoryLegend
+          {...(legendPos || {})}
           title={title}
           centerTitle
           data={legend ? legend : []}
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: "violet",
+    backgroundColor: 'violet',
   },
-  text: { color: "blue" },
+  text: { color: 'blue' },
 });

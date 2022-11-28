@@ -1,14 +1,13 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { ChartBar } from "./ChartBar";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+
+import { ChartBar } from './ChartBar';
 
 const ChartBarMeta: ComponentMeta<typeof ChartBar> = {
-  title: "Chart/Bar",
+  title: 'Chart/Bar',
   component: ChartBar,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default ChartBarMeta;
@@ -17,12 +16,14 @@ type ChartBarStory = ComponentStory<typeof ChartBar>;
 
 export const Basic: ChartBarStory = (args) => <ChartBar {...args} />;
 Basic.args = {
-  data: [[
-    { x: 1, y: 1, label: 1 },
-    { x: 2, y: 2, label: 2 },
-    { x: 3, y: 5, label: 5 },
-  ]],
-  style: { data: { fill: "#c43a31" } }
+  data: [
+    [
+      { x: 1, y: 1, label: 1 },
+      { x: 2, y: 2, label: 2 },
+      { x: 3, y: 5, label: 5 },
+    ],
+  ],
+  style: { data: { fill: '#c43a31' } },
 };
 
 export const Group: ChartBarStory = (args) => <ChartBar {...args} />;

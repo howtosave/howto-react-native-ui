@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import { Button, Portal, Dialog, MD3Colors } from 'react-native-paper';
+import { Button, Dialog, MD3Colors, Portal } from 'react-native-paper';
 
 import { TextComponent } from './DialogTextComponent';
 

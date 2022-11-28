@@ -1,20 +1,19 @@
-import React from 'react';
-import { I18nManager, StyleSheet } from 'react-native';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { InitialState, NavigationContainer } from '@react-navigation/native';
 import { useKeepAwake } from 'expo-keep-awake';
 import { StatusBar } from 'expo-status-bar';
 import * as Updates from 'expo-updates';
+import React from 'react';
+import { I18nManager, StyleSheet } from 'react-native';
 import {
-  Provider as PaperProvider,
-  MD3DarkTheme,
-  MD3LightTheme,
   MD2DarkTheme,
   MD2LightTheme,
   MD2Theme,
+  MD3DarkTheme,
+  MD3LightTheme,
   MD3Theme,
+  Provider as PaperProvider,
   useTheme,
 } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

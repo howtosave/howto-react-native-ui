@@ -1,9 +1,5 @@
 import React, { memo } from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  ImageSourcePropType,
-} from 'react-native';
+import { ImageBackground, ImageSourcePropType, StyleSheet } from 'react-native';
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +9,7 @@ type Props = {
 const Background = ({ source, children }: Props) => (
   <ImageBackground
     source={source}
-    resizeMode='repeat'
+    resizeMode="repeat"
     style={styles.background}
   >
     {children}

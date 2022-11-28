@@ -1,6 +1,12 @@
+import { AntDesign } from '@expo/vector-icons';
 import React, { memo } from 'react';
-import { TouchableOpacity, Image, StyleSheet, StatusBar, Platform } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'; 
+import {
+  Image,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 type Props = {
   goBack: () => void;
@@ -12,10 +18,11 @@ const BackButton = ({ goBack }: Props) => (
   </TouchableOpacity>
 );
 
-const getStatusBarHeight = () => Platform.select({
-  android: StatusBar.currentHeight || 0,
-  default: 0,
-});
+const getStatusBarHeight = () =>
+  Platform.select({
+    android: StatusBar.currentHeight || 0,
+    default: 0,
+  });
 
 const styles = StyleSheet.create({
   container: {

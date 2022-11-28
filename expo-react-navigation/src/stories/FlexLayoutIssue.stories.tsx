@@ -1,9 +1,9 @@
-import React from "react";
-import type { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createStackNavigator } from '@react-navigation/stack';
+import type { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 const FlexLayoutTestView = () => {
   return (
@@ -13,31 +13,28 @@ const FlexLayoutTestView = () => {
       <Text>3</Text>
     </View>
   );
-}
+};
 
 const FlexLayoutTestViewMeta: ComponentMeta<typeof FlexLayoutTestView> = {
-  title: "FlexLayoutTestView",
+  title: 'FlexLayoutTestView',
   component: FlexLayoutTestView,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default FlexLayoutTestViewMeta;
 
 type Story = ComponentStory<typeof FlexLayoutTestView>;
 
-
-const Stack = createNativeStackNavigator<{ TestView: undefined}>();
+const Stack = createNativeStackNavigator<{ TestView: undefined }>();
 //const Stack = createStackNavigator<{ TestView: undefined }>();
 
 export const WithNavigator: Story = (_args) => (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="TestView">
-        <Stack.Screen name="TestView" component={FlexLayoutTestView} />
-      </Stack.Navigator>
-    </NavigationContainer>
+  <NavigationContainer>
+    <Stack.Navigator initialRouteName="TestView">
+      <Stack.Screen name="TestView" component={FlexLayoutTestView} />
+    </Stack.Navigator>
+  </NavigationContainer>
 );
 
 export const WithoutNavigator: Story = (_args) => <FlexLayoutTestView />;

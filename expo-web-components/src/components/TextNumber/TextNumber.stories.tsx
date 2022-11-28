@@ -1,14 +1,13 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { TextNumber } from "./TextNumber";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+
+import { TextNumber } from './TextNumber';
 
 const TextNumberMeta: ComponentMeta<typeof TextNumber> = {
-  title: "TextNumber",
+  title: 'TextNumber',
   component: TextNumber,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default TextNumberMeta;
@@ -19,4 +18,4 @@ export const Basic: TextNumberStory = (args) => <TextNumber {...args} />;
 Basic.args = {
   start: 100,
   value: 1000,
-}
+};

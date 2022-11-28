@@ -1,25 +1,23 @@
-import React, { RefObject } from "react";
+import Slider from '@react-native-community/slider';
+import LottieView from 'lottie-react-native';
+import React, { RefObject } from 'react';
 import {
-  View,
   Animated,
   Easing,
-  StyleSheet,
-  Switch,
   Image,
   Platform,
+  StyleSheet,
+  Switch,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
-import LottieView from 'lottie-react-native';
-import Slider from '@react-native-community/slider';
-
-// import { AntDesign } from '@expo/vector-icons'; 
+// import { AntDesign } from '@expo/vector-icons';
 // <AntDesign name="play" size={24} color="black" />
 // <AntDesign name="pause" size={24} color="black" />
 // <AntDesign name="retweet" size={24} color="black" />
 // <AntDesign name="aliyun" size={24} color="black" />
-
 import { Picker } from '../../components/Picker/Picker';
 
 const AnimatedSlider = Animated.createAnimatedComponent(Slider);
@@ -34,13 +32,17 @@ type Example = {
   getSource: any;
   width?: number;
 };
-type RenderModeValue = "AUTOMATIC" | "HARDWARE" | "SOFTWARE" | '';
+type RenderModeValue = 'AUTOMATIC' | 'HARDWARE' | 'SOFTWARE' | '';
 type RenderMode = {
   value: RenderModeValue;
   label: string;
 };
 
-const makeExample = (value: string, getJson: () => any, width?: number): Example => ({
+const makeExample = (
+  value: string,
+  getJson: () => any,
+  width?: number
+): Example => ({
   value,
   getSource: Platform.select({
     windows: () => name, // Use codegen resources, which are referenced by name
@@ -51,32 +53,40 @@ const makeExample = (value: string, getJson: () => any, width?: number): Example
 
 const EXAMPLES: Example[] = [
   makeExample('9 squares', () =>
-    require('../assets/animations/9squares-AlBoardman.json'),
+    require('../assets/animations/9squares-AlBoardman.json')
   ),
   makeExample('Hamburger Arrow', () =>
-    require('../assets/animations/HamburgerArrow.json'),
+    require('../assets/animations/HamburgerArrow.json')
   ),
   makeExample(
     'Hamburger Arrow (200 px)',
     () => require('../assets/animations/HamburgerArrow.json'),
-    200,
+    200
   ),
   makeExample('Line Animation', () =>
-    require('../assets/animations/LineAnimation.json'),
+    require('../assets/animations/LineAnimation.json')
   ),
-  makeExample('Lottie Logo 1', () => require('../assets/animations/LottieLogo1.json')),
-  makeExample('Lottie Logo 2', () => require('../assets/animations/LottieLogo2.json')),
+  makeExample('Lottie Logo 1', () =>
+    require('../assets/animations/LottieLogo1.json')
+  ),
+  makeExample('Lottie Logo 2', () =>
+    require('../assets/animations/LottieLogo2.json')
+  ),
   makeExample('Lottie Walkthrough', () =>
-    require('../assets/animations/LottieWalkthrough.json'),
+    require('../assets/animations/LottieWalkthrough.json')
   ),
   makeExample('Motion Corpse', () =>
-    require('../assets/animations/MotionCorpse-Jrcanest.json'),
+    require('../assets/animations/MotionCorpse-Jrcanest.json')
   ),
   makeExample('Pin Jump', () => require('../assets/animations/PinJump.json')),
-  makeExample('Twitter Heart', () => require('../assets/animations/TwitterHeart.json')),
-  makeExample('Watermelon', () => require('../assets/animations/Watermelon.json')),
+  makeExample('Twitter Heart', () =>
+    require('../assets/animations/TwitterHeart.json')
+  ),
+  makeExample('Watermelon', () =>
+    require('../assets/animations/Watermelon.json')
+  ),
   makeExample('Motion Corpse', () =>
-    require('../assets/animations/MotionCorpse-Jrcanest.json'),
+    require('../assets/animations/MotionCorpse-Jrcanest.json')
   ),
   makeExample('Remote load', () => ({
     uri: 'https://raw.githubusercontent.com/lottie-react-native/lottie-react-native/master/example/js/animations/Watermelon.json',
@@ -104,8 +114,7 @@ const renderModes: RenderMode[] = [
   },
 ];
 
-interface Props {
-}
+interface Props {}
 
 type State = {
   example: Example;
@@ -114,13 +123,11 @@ type State = {
   isInverse: boolean;
   isPaused: boolean;
   loop: boolean;
-  progress: Animated.Value | undefined,
-  renderMode: RenderMode,
-}
+  progress: Animated.Value | undefined;
+  renderMode: RenderMode;
+};
 
-interface Props {
-
-}
+interface Props {}
 
 export class LottieAnimated extends React.Component<Props, State> {
   state = {
@@ -138,7 +145,7 @@ export class LottieAnimated extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.anim = React.createRef()
+    this.anim = React.createRef();
   }
 
   isImperativeMode = () => this.state.progress === undefined;
@@ -149,7 +156,7 @@ export class LottieAnimated extends React.Component<Props, State> {
     } else {
       (this.state.progress as Animated.Value)?.setValue(0);
     }
-    this.setState({isPlaying: false, isPaused: false});
+    this.setState({ isPlaying: false, isPaused: false });
   };
 
   onPlayPress = () => {
@@ -171,12 +178,12 @@ export class LottieAnimated extends React.Component<Props, State> {
         isPlaying = true;
         isPaused = false;
       }
-      this.setState({isPlaying, isPaused});
+      this.setState({ isPlaying, isPaused });
     } else {
       this.state.progress.setValue(0);
 
       if (!isPlaying) {
-        this.setState({isPlaying: true, isPaused: false});
+        this.setState({ isPlaying: true, isPaused: false });
 
         Animated.timing(this.state.progress, {
           toValue: 1,
@@ -184,7 +191,7 @@ export class LottieAnimated extends React.Component<Props, State> {
           easing: Easing.linear,
           useNativeDriver: false,
         }).start(() => {
-          this.setState({isPlaying: false, isPaused: false});
+          this.setState({ isPlaying: false, isPaused: false });
         });
       }
     }
@@ -192,7 +199,7 @@ export class LottieAnimated extends React.Component<Props, State> {
 
   onLoopPress = () => {
     this.stopAnimation();
-    this.setState({loop: !this.state.loop});
+    this.setState({ loop: !this.state.loop });
   };
 
   onStopPress = () => {
@@ -200,42 +207,55 @@ export class LottieAnimated extends React.Component<Props, State> {
   };
 
   onInversePress = () =>
-    this.setState(state => ({isInverse: !state.isInverse}));
-  onProgressChange = (progress: number) => this.state.progress?.setValue(progress);
-  onDurationChange = (duration: number) => this.setState({duration});
-  onRenderModeChange = (renderMode: RenderMode, idx: number) => this.setState({renderMode});
-  onAnimationFinish = () => this.setState({isPlaying: false, isPaused: false});
+    this.setState((state) => ({ isInverse: !state.isInverse }));
+  onProgressChange = (progress: number) =>
+    this.state.progress?.setValue(progress);
+  onDurationChange = (duration: number) => this.setState({ duration });
+  onRenderModeChange = (renderMode: RenderMode, idx: number) =>
+    this.setState({ renderMode });
+  onAnimationFinish = () =>
+    this.setState({ isPlaying: false, isPaused: false });
   onExampleSelectionChange = (e: Example, index: number) => {
     this.stopAnimation();
-    this.setState(state => ({
+    this.setState((state) => ({
       example: EXAMPLES[index],
       isPlaying: this.isImperativeMode(),
     }));
   };
-  onToggleImperative = (i:boolean) => {
+  onToggleImperative = (i: boolean) => {
     this.stopAnimation();
     this.setState({
-      progress: !i ? new Animated.Value(0) : undefined
+      progress: !i ? new Animated.Value(0) : undefined,
     });
   };
 
   render() {
-    const {duration, isPlaying, isPaused, isInverse, progress, loop, example, renderMode} =
-      this.state;
+    const {
+      duration,
+      isPlaying,
+      isPaused,
+      isInverse,
+      progress,
+      loop,
+      example,
+      renderMode,
+    } = this.state;
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Picker
           selected={example}
           items={EXAMPLES}
           onChange={this.onExampleSelectionChange}
         />
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
           <LottieView
             ref={this.anim}
             autoPlay={!progress}
             style={[
-              !!example.width && {width: example.width as number},
+              !!example.width && { width: example.width as number },
               isInverse && styles.lottieViewInvse,
             ]}
             source={example.getSource()}
@@ -246,7 +266,7 @@ export class LottieAnimated extends React.Component<Props, State> {
             renderMode={renderMode.value || undefined}
           />
         </View>
-        <View style={{paddingBottom: 20, paddingHorizontal: 10}}>
+        <View style={{ paddingBottom: 20, paddingHorizontal: 10 }}>
           <View style={styles.controlsRow}>
             <TouchableOpacity onPress={this.onLoopPress} disabled={!!progress}>
               <Image
@@ -261,7 +281,8 @@ export class LottieAnimated extends React.Component<Props, State> {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.playButton}
-              onPress={this.onPlayPress}>
+              onPress={this.onPlayPress}
+            >
               <Image
                 style={styles.playButtonIcon}
                 resizeMode="contain"
@@ -288,17 +309,18 @@ export class LottieAnimated extends React.Component<Props, State> {
               flexDirection: 'row',
               justifyContent: 'space-between',
               paddingBottom: 10,
-            }}>
+            }}
+          >
             <Text>Use Imperative API:</Text>
             <View />
             <Switch onValueChange={this.onToggleImperative} value={!progress} />
           </View>
-          <View style={{paddingBottom: 10}}>
+          <View style={{ paddingBottom: 10 }}>
             <View>
               <Text>Progress:</Text>
             </View>
             <AnimatedSlider
-              style={{height: 30}}
+              style={{ height: 30 }}
               minimumValue={0}
               maximumValue={1}
               step={0.001}
@@ -317,7 +339,7 @@ export class LottieAnimated extends React.Component<Props, State> {
               <Text>Duration: ({Math.round(duration)}ms)</Text>
             </View>
             <Slider
-              style={{height: 30}}
+              style={{ height: 30 }}
               step={50}
               minimumValue={50}
               maximumValue={4000}
@@ -327,7 +349,7 @@ export class LottieAnimated extends React.Component<Props, State> {
             />
           </View>
           <Picker
-            isDropdown={true}
+            isDropdown
             selected={renderMode}
             items={renderModes}
             onChange={this.onRenderModeChange}

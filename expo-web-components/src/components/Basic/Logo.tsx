@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet } from 'react-native';
 
 type Props = {
   source?: ImageSourcePropType;

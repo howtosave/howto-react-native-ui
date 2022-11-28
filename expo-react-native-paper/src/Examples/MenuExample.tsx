@@ -1,3 +1,4 @@
+import type { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import {
   GestureResponderEvent,
@@ -5,8 +6,6 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-
-import type { StackNavigationProp } from '@react-navigation/stack';
 import {
   Appbar,
   Button,

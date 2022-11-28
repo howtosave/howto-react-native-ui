@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { List, SegmentedButtons } from 'react-native-paper';
 
 const SegmentedButtonDefault = () => {
   const [value, setValue] = React.useState('');
 
   return (
-    <List.Section title={`Segmented Button`}>
+    <List.Section title="Segmented Button">
       <SegmentedButtons
         value={value}
         onValueChange={setValue}

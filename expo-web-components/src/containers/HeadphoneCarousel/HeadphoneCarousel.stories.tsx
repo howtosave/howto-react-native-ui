@@ -1,6 +1,7 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { HeadphoneCarousel } from "./HeadphoneCarousel";
+import { ComponentMeta, ComponentStory } from '@storybook/react-native';
+import React from 'react';
+
+import { HeadphoneCarousel } from './HeadphoneCarousel';
 
 /**
  * See https://github.com/callstack/react-native-pager-view/tree/master/example
@@ -8,18 +9,17 @@ import { HeadphoneCarousel } from "./HeadphoneCarousel";
  */
 
 const HeadphoneCarouselMeta: ComponentMeta<typeof HeadphoneCarousel> = {
-  title: "DeviceOnly-Containers/HeadphoneCarousel",
+  title: 'DeviceOnly-Containers/HeadphoneCarousel',
   component: HeadphoneCarousel,
-  argTypes: {
-  },
-  args: {
-  },
+  argTypes: {},
+  args: {},
 };
 
 export default HeadphoneCarouselMeta;
 
 type HeadphoneCarouselStory = ComponentStory<typeof HeadphoneCarousel>;
 
-export const Basic: HeadphoneCarouselStory = (args) => <HeadphoneCarousel {...args} />;
-Basic.args = {
-};
+export const Basic: HeadphoneCarouselStory = (args) => (
+  <HeadphoneCarousel {...args} />
+);
+Basic.args = {};

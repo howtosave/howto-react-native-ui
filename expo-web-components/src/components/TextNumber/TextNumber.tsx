@@ -1,9 +1,7 @@
-import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import {
-  Text,
-  TextProps,
-} from 'react-native-paper';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, TextProps } from 'react-native-paper';
+
 import { useInterval } from '../../hooks/useInterval';
 
 export interface TextNumberProps extends TextProps {
@@ -16,7 +14,13 @@ export interface TextNumberProps extends TextProps {
 const INTERVAL = 50;
 
 export const TextNumber: React.FC<TextNumberProps> = ({
-  start=0, value, duration=1000, comma=true, format, children, ...rest
+  start = 0,
+  value,
+  duration = 1000,
+  comma = true,
+  format,
+  children,
+  ...rest
 }) => {
   const [_value, setValue] = React.useState(start);
 
@@ -24,11 +28,14 @@ export const TextNumber: React.FC<TextNumberProps> = ({
   useInterval(() => {
     const newVal = _value + incVal;
     //console.log('>>> newVal:', newVal);
-    if (incVal === 0 || (incVal > 0 && newVal >= value) || (incVal < 0 && newVal <= value)) {
+    if (
+      incVal === 0 ||
+      (incVal > 0 && newVal >= value) ||
+      (incVal < 0 && newVal <= value)
+    ) {
       setValue(value);
       return false; // stop interval
-    }
-    else {
+    } else {
       setValue(newVal);
       return true; // keep interval alive
     }
@@ -58,20 +65,21 @@ export const TextNumber: React.FC<TextNumberProps> = ({
 
   return (
     <Text {...rest}>
-      {comma ? numberWithCommas(_value) : _value}{children}
+      {comma ? numberWithCommas(_value) : _value}
+      {children}
     </Text>
   );
 };
 
 function numberWithCommas(x: number) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: "violet",
+    backgroundColor: 'violet',
   },
-  text: { color: "blue" },
+  text: { color: 'blue' },
 });

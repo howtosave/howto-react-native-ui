@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import type { VictoryLineProps } from 'victory';
 import {
   VictoryChart,
   VictoryLine,
   VictoryStack,
   VictoryTheme,
-} from "victory-native";
-import type { VictoryLineProps } from 'victory';
+} from 'victory-native';
 
 type ChartData = VictoryLineProps['data'][];
 type LineStyle = VictoryLineProps['style'];
@@ -22,21 +22,13 @@ export const ChartLine = ({ data, style }: ChartLineProps) => {
   return (
     <VictoryChart theme={VictoryTheme.material}>
       {isStacked ? (
-        <VictoryStack
-        >
+        <VictoryStack>
           {data.map((d, idx) => (
-            <VictoryLine
-              style={style}
-              data={d}
-              key={idx}
-            />
+            <VictoryLine style={style} data={d} key={idx} />
           ))}
         </VictoryStack>
       ) : (
-        <VictoryLine
-          style={style}
-          data={data[0]}
-        />
+        <VictoryLine style={style} data={data[0]} />
       )}
     </VictoryChart>
   );
@@ -46,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-    backgroundColor: "violet",
+    backgroundColor: 'violet',
   },
-  text: { color: "blue" },
+  text: { color: 'blue' },
 });

@@ -26,9 +26,8 @@ type Props = DrawerContentComponentProps;
 
 export function DrawerContent(props: Props) {
   const paperTheme = useTheme();
-  const { rtl, theme, toggleRTL, toggleTheme } = React.useContext(
-    PreferencesContext
-  );
+  const { rtl, theme, toggleRTL, toggleTheme } =
+    React.useContext(PreferencesContext);
   const progress = useDrawerProgress();
   console.log('>>>>>>>>>>>>>>', progress);
   const translateX = Animated.interpolateNode(progress.value, {
@@ -57,8 +56,7 @@ export function DrawerContent(props: Props) {
           >
             <Avatar.Image
               source={{
-                uri:
-                  'https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg',
+                uri: 'https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg',
               }}
               size={50}
             />

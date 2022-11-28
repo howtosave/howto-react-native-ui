@@ -1,10 +1,10 @@
 /**
  * See https://docs.expo.dev/versions/v47.0.0/sdk/webview/
  */
-import * as React from 'react';
-import { WebView } from 'react-native-webview';
-import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
+import * as React from 'react';
+import { StyleSheet } from 'react-native';
+import { WebView } from 'react-native-webview';
 
 const _js = `
 const labels = [
@@ -68,7 +68,9 @@ export default function WebViewScreen() {
       // source={{ uri: 'https://expo.dev' }}
       source={{ html: _html }}
       injectedJavaScript={_js}
-      onMessage={(event) => {console.log('[RECV]', event);}}
+      onMessage={(event) => {
+        console.log('[RECV]', event);
+      }}
     />
   );
 }

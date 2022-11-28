@@ -7,7 +7,6 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useExampleTheme } from '.';

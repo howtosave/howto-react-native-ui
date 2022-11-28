@@ -1,9 +1,15 @@
-import React from 'react';
-import { View, ScrollView, Platform, StyleSheet, KeyboardAvoidingView } from 'react-native';
-import type { ScrollViewProps, ViewProps } from 'react-native';
-import { useTheme } from 'react-native-paper';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React from 'react';
+import type { ScrollViewProps, ViewProps } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
@@ -14,7 +20,14 @@ interface LayoutProps extends ViewProps, ScrollViewProps {
   withKeyboardAvoidingView?: boolean;
 }
 
-export default function Layout({ withScrollView, withKeyboardAvoidingView, navigation, style, children, ...rest }: LayoutProps) {
+export default function Layout({
+  withScrollView,
+  withKeyboardAvoidingView,
+  navigation,
+  style,
+  children,
+  ...rest
+}: LayoutProps) {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
 
@@ -29,21 +42,32 @@ export default function Layout({ withScrollView, withKeyboardAvoidingView, navig
   ];
   if (withScrollView) {
     return (
-      <ScrollView style={[...containerStyles, style]} {...rest} alwaysBounceVertical={false} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={[...containerStyles, style]}
+        {...rest}
+        alwaysBounceVertical={false}
+        showsVerticalScrollIndicator={false}
+      >
         {children}
       </ScrollView>
     );
   } else {
-    if (withKeyboardAvoidingView) return (
-      <KeyboardAvoidingView style={[...containerStyles, style]} behavior="padding" {...rest}>
-        {children}
-      </KeyboardAvoidingView>
-    );
-    else return (
-      <View style={[...containerStyles, style]} {...rest}>
-        {children}
-      </View>
-    );
+    if (withKeyboardAvoidingView)
+      return (
+        <KeyboardAvoidingView
+          style={[...containerStyles, style]}
+          behavior="padding"
+          {...rest}
+        >
+          {children}
+        </KeyboardAvoidingView>
+      );
+    else
+      return (
+        <View style={[...containerStyles, style]} {...rest}>
+          {children}
+        </View>
+      );
   }
 }
 

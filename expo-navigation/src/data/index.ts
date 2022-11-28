@@ -1,5 +1,5 @@
-import { Twitt } from '../components/twitt';
 import { NotificationTwitt } from '../components/notificationTwitt';
+import { Twitt } from '../components/twitt';
 
 type TwittProps = React.ComponentProps<typeof Twitt>;
 
@@ -94,7 +94,7 @@ export const twitts: Omit<TwittProps, 'onPress'>[] = [
 
 type NotificationTwittProps = React.ComponentProps<typeof NotificationTwitt>;
 
-export const notificationTweets: Array<NotificationTwittProps> = [
+export const notificationTweets: NotificationTwittProps[] = [
   {
     id: 1,
     content:

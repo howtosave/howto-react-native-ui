@@ -1,6 +1,5 @@
 import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
-
 import {
   MD2Colors,
   MD3Colors,
