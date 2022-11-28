@@ -1,4 +1,6 @@
-import * as React from "react";
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import * as React from 'react';
 import {
   ListRenderItem,
   Platform,
@@ -7,11 +9,10 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from "react-native";
-import styles from "../styles/container-view-styles";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackNavigatorParams } from "../navigation-config";
+} from 'react-native';
+
+import { RootStackNavigatorParams } from '../navigation-config';
+import styles from '../styles/container-view-styles';
 
 export const ComponentsScreen: React.FC = () => {
   const rootNavigation =
@@ -43,7 +44,7 @@ export const ComponentsScreen: React.FC = () => {
         </View>
       );
     },
-    [],
+    []
   );
 
   return (
@@ -65,19 +66,19 @@ type SectionItem = {
 const sections: SectionItem[] = [
   {
     data: [
-      { key: "Pie", title: "VictoryPie" },
-      { key: "Chart", title: "VictoryChart" },
-      { key: "Line", title: "VictoryLine" },
-      { key: "Area", title: "VictoryArea" },
-      { key: "Bar", title: "VictoryBar" },
-      { key: "Histogram", title: "VictoryHistogram" },
-      { key: "Scatter", title: "VictoryScatter" },
-      { key: "BoxPlot", title: "VictoryBoxPlot" },
-      { key: "ErrorBar", title: "VictoryErrorBar" },
-      { key: "Voronoi", title: "VictoryVoronoi" },
-      { key: "BrushLine", title: "VictoryBrushLine" },
+      { key: 'Pie', title: 'VictoryPie' },
+      { key: 'Chart', title: 'VictoryChart' },
+      { key: 'Line', title: 'VictoryLine' },
+      { key: 'Area', title: 'VictoryArea' },
+      { key: 'Bar', title: 'VictoryBar' },
+      { key: 'Histogram', title: 'VictoryHistogram' },
+      { key: 'Scatter', title: 'VictoryScatter' },
+      { key: 'BoxPlot', title: 'VictoryBoxPlot' },
+      { key: 'ErrorBar', title: 'VictoryErrorBar' },
+      { key: 'Voronoi', title: 'VictoryVoronoi' },
+      { key: 'BrushLine', title: 'VictoryBrushLine' },
     ],
-    title: "Charts",
+    title: 'Charts',
   },
   // {
   //   data: [
@@ -88,11 +89,11 @@ const sections: SectionItem[] = [
   // },
   {
     data: [
-      { key: "Legends", title: "Legends" },
-      { key: "Axis", title: "Axis" },
-      { key: "PolarAxis", title: "VictoryPolarAxis" },
+      { key: 'Legends', title: 'Legends' },
+      { key: 'Axis', title: 'Axis' },
+      { key: 'PolarAxis', title: 'VictoryPolarAxis' },
       // { key: "ErrorsTooltipsView", title: "Errors & Tooltips" }
     ],
-    title: "Other",
+    title: 'Other',
   },
 ];

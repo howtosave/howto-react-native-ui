@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
-import { VictoryAxis } from "victory-native";
-import Svg from "react-native-svg";
-import viewStyles from "../styles/view-styles";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
+import Svg from 'react-native-svg';
+import { VictoryAxis } from 'victory-native';
+
+import viewStyles from '../styles/view-styles';
 
 export const AxisScreen: React.FC = () => {
   return (

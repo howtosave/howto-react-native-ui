@@ -1,20 +1,20 @@
-import * as React from "react";
-import { Dimensions, ScrollView } from "react-native";
+import _ from 'lodash';
+import * as React from 'react';
+import { Dimensions, ScrollView } from 'react-native';
+import { VictoryBrushLineProps } from 'victory-brush-line';
+import { DomainTuple } from 'victory-core';
 import {
   VictoryAxis,
+  VictoryBar,
   VictoryBrushLine,
   VictoryChart,
-  VictoryScatter,
-  VictoryLine,
-  VictoryLabel,
-  VictoryBar,
   VictoryContainer,
-} from "victory-native";
-import { DomainTuple } from "victory-core";
-import _ from "lodash";
+  VictoryLabel,
+  VictoryLine,
+  VictoryScatter,
+} from 'victory-native';
 
-import viewStyles from "../styles/view-styles";
-import { VictoryBrushLineProps } from "victory-brush-line";
+import viewStyles from '../styles/view-styles';
 
 type DataType = {
   name: string;
@@ -30,20 +30,20 @@ interface DataSet {
 }
 
 const data: DataType = [
-  { name: "Adrien", strength: 5, intelligence: 30, speed: 500, luck: 3 },
-  { name: "Brice", strength: 1, intelligence: 13, speed: 550, luck: 2 },
-  { name: "Casey", strength: 4, intelligence: 15, speed: 80, luck: 1 },
-  { name: "Drew", strength: 3, intelligence: 25, speed: 600, luck: 5 },
-  { name: "Erin", strength: 9, intelligence: 50, speed: 350, luck: 4 },
-  { name: "Francis", strength: 2, intelligence: 40, speed: 200, luck: 2 },
+  { name: 'Adrien', strength: 5, intelligence: 30, speed: 500, luck: 3 },
+  { name: 'Brice', strength: 1, intelligence: 13, speed: 550, luck: 2 },
+  { name: 'Casey', strength: 4, intelligence: 15, speed: 80, luck: 1 },
+  { name: 'Drew', strength: 3, intelligence: 25, speed: 600, luck: 5 },
+  { name: 'Erin', strength: 9, intelligence: 50, speed: 350, luck: 4 },
+  { name: 'Francis', strength: 2, intelligence: 40, speed: 200, luck: 2 },
 ];
 
-type Attribute = "strength" | "intelligence" | "speed" | "luck";
-const attributes: Attribute[] = ["strength", "intelligence", "speed", "luck"];
+type Attribute = 'strength' | 'intelligence' | 'speed' | 'luck';
+const attributes: Attribute[] = ['strength', 'intelligence', 'speed', 'luck'];
 
 type Filter = Record<Attribute, number[] | undefined>;
 
-const width = Dimensions.get("window").width;
+const width = Dimensions.get('window').width;
 const padding: { [key: string]: number } = {
   top: 100,
   left: 50,
@@ -90,7 +90,7 @@ export const BrushLineScreen: React.FC = () => {
 
   const onDomainChange = (
     domain: DomainTuple,
-    props: VictoryBrushLineProps | undefined,
+    props: VictoryBrushLineProps | undefined
   ) => {
     const filters = addNewFilters(domain, props);
     const isFiltered = !_.isEmpty(_.values(filters).filter(Boolean));
@@ -104,11 +104,11 @@ export const BrushLineScreen: React.FC = () => {
 
   const addNewFilters = (
     domain: DomainTuple,
-    props: VictoryBrushLineProps | undefined,
+    props: VictoryBrushLineProps | undefined
   ): Filter => {
     if (!domain) return filters;
-    if (typeof domain[0] != "number") return filters;
-    if (typeof domain[1] != "number") return filters;
+    if (typeof domain[0] != 'number') return filters;
+    if (typeof domain[1] != 'number') return filters;
     if (!props) return filters;
 
     const dm = domain as [number, number];
@@ -169,7 +169,7 @@ export const BrushLineScreen: React.FC = () => {
         <VictoryAxis
           style={{
             tickLabels: { fontSize: 20 },
-            axis: { stroke: "none" },
+            axis: { stroke: 'none' },
           }}
           tickLabelComponent={<VictoryLabel y={padding.top - 40} />}
         />
@@ -180,7 +180,7 @@ export const BrushLineScreen: React.FC = () => {
             data={dataset.data}
             style={{
               data: {
-                stroke: "tomato",
+                stroke: 'tomato',
                 opacity: isActive(dataset) ? 1 : 0.2,
               },
             }}
@@ -205,7 +205,7 @@ export const BrushLineScreen: React.FC = () => {
               tickLabels: {
                 fontSize: 15,
                 padding: 15,
-                pointerEvents: "none",
+                pointerEvents: 'none',
               },
             }}
             tickValues={[0.2, 0.4, 0.6, 0.8, 1]}
@@ -216,9 +216,9 @@ export const BrushLineScreen: React.FC = () => {
       <VictoryChart>
         <VictoryScatter
           data={[
-            { x: "one", y: 0 },
-            { x: "two", y: 2 },
-            { x: "three", y: 4 },
+            { x: 'one', y: 0 },
+            { x: 'two', y: 2 },
+            { x: 'three', y: 4 },
           ]}
         />
         <VictoryAxis
@@ -234,9 +234,9 @@ export const BrushLineScreen: React.FC = () => {
       <VictoryChart domainPadding={{ x: 80 }}>
         <VictoryBar
           data={[
-            { x: "one", y: 4 },
-            { x: "two", y: 5 },
-            { x: "three", y: 6 },
+            { x: 'one', y: 4 },
+            { x: 'two', y: 5 },
+            { x: 'three', y: 6 },
           ]}
         />
         <VictoryAxis
@@ -254,7 +254,7 @@ export const BrushLineScreen: React.FC = () => {
       <VictoryChart domainPadding={50}>
         <VictoryScatter
           size={4}
-          style={{ data: { fill: "tomato" } }}
+          style={{ data: { fill: 'tomato' } }}
           data={[
             { x: 1, y: 1 },
             { x: 2, y: 2 },

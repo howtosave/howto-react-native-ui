@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
-import { VictoryArea, VictoryGroup, VictoryStack } from "victory-native";
-import viewStyles from "../styles/view-styles";
-import { getData } from "../data";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
+import { VictoryArea, VictoryGroup, VictoryStack } from 'victory-native';
+
+import { getData } from '../data';
+import viewStyles from '../styles/view-styles';
 
 export const AreaScreen: React.FC = () => {
   const [data, setData] = React.useState(getData());
@@ -49,7 +50,7 @@ export const AreaScreen: React.FC = () => {
           { amount: 4, yield: 2, error: 0.1 },
           { amount: 5, yield: 1, error: 1.5 },
         ]}
-        x={"amount"}
+        x="amount"
         y={(d) => d.yield + d.error}
       />
 
@@ -106,7 +107,7 @@ export const AreaScreen: React.FC = () => {
         height={450}
         style={{
           data: {
-            strokeDasharray: "5,5",
+            strokeDasharray: '5,5',
             strokeWidth: 2,
             fillOpacity: 0.4,
           },
@@ -115,8 +116,8 @@ export const AreaScreen: React.FC = () => {
         <VictoryArea
           style={{
             data: {
-              fill: "tomato",
-              stroke: "tomato",
+              fill: 'tomato',
+              stroke: 'tomato',
             },
           }}
           data={[
@@ -128,8 +129,8 @@ export const AreaScreen: React.FC = () => {
         <VictoryArea
           style={{
             data: {
-              fill: "orange",
-              stroke: "orange",
+              fill: 'orange',
+              stroke: 'orange',
             },
           }}
           data={[
@@ -141,8 +142,8 @@ export const AreaScreen: React.FC = () => {
         <VictoryArea
           style={{
             data: {
-              fill: "gold",
-              stroke: "gold",
+              fill: 'gold',
+              stroke: 'gold',
             },
           }}
           data={[

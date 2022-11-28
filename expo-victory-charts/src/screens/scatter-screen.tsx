@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ScrollView, View } from "react-native";
-import { VictoryScatter } from "victory-native";
-import viewStyles from "../styles/view-styles";
-import { generateRandomData } from "../data";
+import * as React from 'react';
+import { ScrollView, View } from 'react-native';
+import { VictoryScatter } from 'victory-native';
+
+import { generateRandomData } from '../data';
+import viewStyles from '../styles/view-styles';
 
 export const ScatterScreen: React.FC = () => {
   const [data, setData] = React.useState(generateRandomData());
@@ -37,8 +38,8 @@ export const ScatterScreen: React.FC = () => {
           symbol="star"
           style={{
             data: {
-              fill: "gold",
-              stroke: "orange",
+              fill: 'gold',
+              stroke: 'orange',
               strokeWidth: 3,
             },
           }}
@@ -47,10 +48,10 @@ export const ScatterScreen: React.FC = () => {
         <VictoryScatter
           style={{
             data: {
-              fill: ({ datum }) => (datum.y > 0 ? "red" : "blue"),
+              fill: ({ datum }) => (datum.y > 0 ? 'red' : 'blue'),
             },
           }}
-          symbol={({ datum }) => (datum.y > 0 ? "triangleUp" : "triangleDown")}
+          symbol={({ datum }) => (datum.y > 0 ? 'triangleUp' : 'triangleDown')}
           y={(d) => Math.sin(2 * Math.PI * d.x)}
           samples={25}
         />

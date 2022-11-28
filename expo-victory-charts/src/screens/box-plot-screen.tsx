@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
-import { VictoryChart, VictoryBoxPlot } from "victory-native";
-import viewStyles from "../styles/view-styles";
-import { getBoxPlotData } from "../data";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
+import { VictoryBoxPlot, VictoryChart } from 'victory-native';
+
+import { getBoxPlotData } from '../data';
+import viewStyles from '../styles/view-styles';
 
 export const BoxPlotScreen: React.FC = () => {
   const [data, setData] = React.useState(getBoxPlotData());
@@ -24,11 +25,11 @@ export const BoxPlotScreen: React.FC = () => {
           maxLabels
           boxWidth={10}
           data={[
-            { x: "red", y: [5, 10, 9, 2] },
-            { x: "blue", y: [1, 15, 6, 8] },
-            { x: "green", y: [3, 5, 6, 9] },
-            { x: "yellow", y: [5, 20, 8, 12] },
-            { x: "white", y: [2, 11, 12, 13] },
+            { x: 'red', y: [5, 10, 9, 2] },
+            { x: 'blue', y: [1, 15, 6, 8] },
+            { x: 'green', y: [3, 5, 6, 9] },
+            { x: 'yellow', y: [5, 20, 8, 12] },
+            { x: 'white', y: [2, 11, 12, 13] },
           ]}
         />
       </VictoryChart>

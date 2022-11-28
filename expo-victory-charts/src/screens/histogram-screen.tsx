@@ -1,11 +1,12 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
-import { VictoryStack, VictoryHistogram } from "victory-native";
-import viewStyles from "../styles/view-styles";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
+import { VictoryHistogram, VictoryStack } from 'victory-native';
+
+import viewStyles from '../styles/view-styles';
 
 const randomDate = (start: Date, end: Date) => {
   return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime()),
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
 };
 const getRandomDateData = () =>
@@ -28,7 +29,7 @@ export const HistogramScreen: React.FC = () => {
       <VictoryHistogram
         data={numericData}
         style={{
-          data: { stroke: "#833B61", strokeWidth: 3, fill: "#F67E7D" },
+          data: { stroke: '#833B61', strokeWidth: 3, fill: '#F67E7D' },
         }}
         cornerRadius={10}
       />
@@ -36,7 +37,7 @@ export const HistogramScreen: React.FC = () => {
       <VictoryHistogram
         data={numericData}
         style={{
-          data: { stroke: "#833B61", strokeWidth: 3, fill: "#F67E7D" },
+          data: { stroke: '#833B61', strokeWidth: 3, fill: '#F67E7D' },
         }}
         binSpacing={20}
       />
@@ -56,7 +57,7 @@ export const HistogramScreen: React.FC = () => {
 
       <VictoryHistogram
         data={dateData2}
-        style={{ data: { stroke: "#f67280", strokeWidth: 4, fill: "#355c7d" } }}
+        style={{ data: { stroke: '#f67280', strokeWidth: 4, fill: '#355c7d' } }}
       />
 
       <VictoryStack colorScale="qualitative">

@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Text } from "react-native";
-import { ScrollView } from "react-native";
-import { VictoryBar, VictoryGroup, VictoryStack } from "victory-native";
-import viewStyles from "../styles/view-styles";
+import * as React from 'react';
+import { ScrollView, Text } from 'react-native';
+import { VictoryBar, VictoryGroup, VictoryStack } from 'victory-native';
+
+import viewStyles from '../styles/view-styles';
 
 export const BarScreen: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ export const BarScreen: React.FC = () => {
         width={300}
         height={375}
         offset={20}
-        colorScale={"qualitative"}
+        colorScale="qualitative"
       >
         <VictoryBar
           data={[
@@ -48,7 +48,7 @@ export const BarScreen: React.FC = () => {
         />
       </VictoryGroup>
 
-      <VictoryStack width={300} height={375} colorScale={"qualitative"}>
+      <VictoryStack width={300} height={375} colorScale="qualitative">
         <VictoryBar
           data={[
             { x: 1, y: 1 },
@@ -78,7 +78,7 @@ export const BarScreen: React.FC = () => {
         style={{
           data: {
             fill: ({ datum }: { datum: { y: number } }) =>
-              datum.y > 2 ? "red" : "blue",
+              datum.y > 2 ? 'red' : 'blue',
           },
         }}
         data={[

@@ -1,22 +1,23 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
 import {
   Background,
-  VictoryChart,
+  VictoryArea,
   VictoryBar,
+  VictoryChart,
   VictoryGroup,
   VictoryLine,
   VictoryScatter,
-  VictoryArea,
   VictoryStack,
   VictoryTooltip,
-} from "victory-native";
-import viewStyles from "../styles/view-styles";
-import { getTransitionData } from "../data";
+} from 'victory-native';
+
+import { getTransitionData } from '../data';
+import viewStyles from '../styles/view-styles';
 
 export const ChartScreen: React.FC = () => {
   const [transitionData, setTransitionData] = React.useState(
-    getTransitionData(),
+    getTransitionData()
   );
 
   React.useEffect(() => {
@@ -36,9 +37,9 @@ export const ChartScreen: React.FC = () => {
 
       <VictoryChart domain={{ x: [0, 4] }}>
         <VictoryGroup
-          labels={["a", "b", "c"]}
+          labels={['a', 'b', 'c']}
           offset={10}
-          colorScale={"qualitative"}
+          colorScale="qualitative"
         >
           <VictoryBar
             data={[
@@ -74,41 +75,41 @@ export const ChartScreen: React.FC = () => {
             {
               x: 1,
               y: 3,
-              fill: "red",
-              symbol: "plus",
+              fill: 'red',
+              symbol: 'plus',
               size: 6,
-              label: "Red",
+              label: 'Red',
             },
             {
               x: 2,
               y: 5,
-              fill: "magenta",
+              fill: 'magenta',
               size: 9,
               opacity: 0.4,
-              label: "Magenta",
+              label: 'Magenta',
             },
             {
               x: 3,
               y: 4,
-              fill: "orange",
+              fill: 'orange',
               size: 5,
-              label: "Orange",
+              label: 'Orange',
             },
             {
               x: 4,
               y: 2,
-              fill: "brown",
-              symbol: "square",
+              fill: 'brown',
+              symbol: 'square',
               size: 6,
-              label: "Brown",
+              label: 'Brown',
             },
             {
               x: 5,
               y: 5,
-              fill: "black",
-              symbol: "triangleUp",
+              fill: 'black',
+              symbol: 'triangleUp',
               size: 5,
-              label: "Black",
+              label: 'Black',
             },
           ]}
         />
@@ -118,11 +119,11 @@ export const ChartScreen: React.FC = () => {
       </VictoryChart>
       <VictoryChart animate={{ duration: 2000 }}>
         <VictoryBar
-          labels={() => "Hi"}
+          labels={() => 'Hi'}
           data={transitionData}
           style={{
             data: {
-              fill: "tomato",
+              fill: 'tomato',
               width: 12,
             },
           }}
@@ -131,8 +132,8 @@ export const ChartScreen: React.FC = () => {
               duration: 500,
               before: () => ({
                 y: 0,
-                fill: "orange",
-                label: "BYE",
+                fill: 'orange',
+                label: 'BYE',
               }),
             },
           }}
@@ -143,38 +144,38 @@ export const ChartScreen: React.FC = () => {
         <VictoryStack>
           <VictoryArea
             data={[
-              { x: "a", y: 2 },
-              { x: "b", y: 3 },
-              { x: "c", y: 5 },
-              { x: "d", y: 4 },
-              { x: "e", y: 7 },
+              { x: 'a', y: 2 },
+              { x: 'b', y: 3 },
+              { x: 'c', y: 5 },
+              { x: 'd', y: 4 },
+              { x: 'e', y: 7 },
             ]}
           />
           <VictoryArea
             data={[
-              { x: "a", y: 1 },
-              { x: "b", y: 4 },
-              { x: "c", y: 5 },
-              { x: "d", y: 7 },
-              { x: "e", y: 5 },
+              { x: 'a', y: 1 },
+              { x: 'b', y: 4 },
+              { x: 'c', y: 5 },
+              { x: 'd', y: 7 },
+              { x: 'e', y: 5 },
             ]}
           />
           <VictoryArea
             data={[
-              { x: "a", y: 3 },
-              { x: "b", y: 2 },
-              { x: "c", y: 6 },
-              { x: "d", y: 2 },
-              { x: "e", y: 6 },
+              { x: 'a', y: 3 },
+              { x: 'b', y: 2 },
+              { x: 'c', y: 6 },
+              { x: 'd', y: 2 },
+              { x: 'e', y: 6 },
             ]}
           />
           <VictoryArea
             data={[
-              { x: "a", y: 2 },
-              { x: "b", y: 3 },
-              { x: "c", y: 3 },
-              { x: "d", y: 4 },
-              { x: "e", y: 7 },
+              { x: 'a', y: 2 },
+              { x: 'b', y: 3 },
+              { x: 'c', y: 3 },
+              { x: 'd', y: 4 },
+              { x: 'e', y: 7 },
             ]}
           />
         </VictoryStack>
@@ -182,7 +183,7 @@ export const ChartScreen: React.FC = () => {
       <VictoryChart
         polar
         backgroundComponent={<Background />}
-        style={{ background: { fill: "pink" } }}
+        style={{ background: { fill: 'pink' } }}
       >
         <VictoryBar />
       </VictoryChart>

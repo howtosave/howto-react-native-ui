@@ -1,8 +1,9 @@
-import * as React from "react";
-import { ScrollView } from "react-native";
-import { VictoryLine } from "victory-native";
-import { getStyles, getYFunction } from "../data";
-import viewStyles from "../styles/view-styles";
+import * as React from 'react';
+import { ScrollView } from 'react-native';
+import { VictoryLine } from 'victory-native';
+
+import { getStyles, getYFunction } from '../data';
+import viewStyles from '../styles/view-styles';
 
 export const LineScreen: React.FC = () => {
   const [y, setY] = React.useState(getYFunction);
@@ -41,7 +42,7 @@ export const LineScreen: React.FC = () => {
           { amount: 4, yield: 2, error: 0.1 },
           { amount: 5, yield: 1, error: 1.5 },
         ]}
-        x={"amount"}
+        x="amount"
         y={(data) => data.yield + data.error}
       />
 
@@ -60,10 +61,10 @@ export const LineScreen: React.FC = () => {
           { x: 5, y: 5 },
         ]}
         interpolation="cardinal"
-        labels={() => "LINE"}
+        labels={() => 'LINE'}
         style={{
           data: {
-            stroke: "#822722",
+            stroke: '#822722',
             strokeWidth: 3,
           },
           labels: { fontSize: 12 },
@@ -73,7 +74,7 @@ export const LineScreen: React.FC = () => {
       <VictoryLine
         width={300}
         style={{
-          data: { stroke: "blue", strokeWidth: 4 },
+          data: { stroke: 'blue', strokeWidth: 4 },
         }}
         data={[
           { x: 0, y: 1 },
@@ -87,9 +88,9 @@ export const LineScreen: React.FC = () => {
 
       <VictoryLine
         style={{
-          data: { stroke: "red", strokeWidth: 9 },
+          data: { stroke: 'red', strokeWidth: 9 },
         }}
-        interpolation={"linear"}
+        interpolation="linear"
         data={[
           { x: 0, y: 1 },
           { x: 1, y: 3 },

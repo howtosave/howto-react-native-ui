@@ -1,7 +1,8 @@
-import * as React from "react";
-import { ScrollView, Text } from "react-native";
-import { VictoryChart, VictoryErrorBar, VictoryTheme } from "victory-native";
-import viewStyles from "../styles/view-styles";
+import * as React from 'react';
+import { ScrollView, Text } from 'react-native';
+import { VictoryChart, VictoryErrorBar, VictoryTheme } from 'victory-native';
+
+import viewStyles from '../styles/view-styles';
 
 export const ErrorBarScreen: React.FC = () => {
   return (
