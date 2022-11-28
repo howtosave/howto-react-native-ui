@@ -15,3 +15,12 @@ web-build/
 
 # android
 *.apk
+
+# Yarn
+.yarn-global
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

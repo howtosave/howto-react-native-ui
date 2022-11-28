@@ -1,9 +1,21 @@
 {
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "packages": [
     "expo-*"
   ],
+  "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.0.0",
-  "npmClient": "yarn"
+  "version": "independent",
+  "command": {
+    "publish": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "message": "chore: publish",
+      "ignoreChanges": [
+        "**/__fixtures__/**",
+        "**/__tests__/**",
+        "**/*.md"
+      ]
+    }
+  }
 }
