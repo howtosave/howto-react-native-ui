@@ -7,19 +7,19 @@ const { getDefaultConfig } = require('@expo/metro-config');
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 const root = path.resolve(__dirname, '..');
-const packages = path.resolve(root, 'packages');
+// const packages = path.resolve(root, 'packages');
 
 const defaultConfig = getDefaultConfig(__dirname);
 
 // List all packages under `packages/`
-const workspaces = fs
-  .readdirSync(packages)
-  .map((p) => path.join(packages, p))
-  .filter(
-    (p) =>
-      fs.statSync(p).isDirectory() &&
-      fs.existsSync(path.join(p, 'package.json'))
-  );
+// const workspaces = fs
+//   .readdirSync(packages)
+//   .map((p) => path.join(packages, p))
+//   .filter(
+//     (p) =>
+//       fs.statSync(p).isDirectory() &&
+//       fs.existsSync(path.join(p, 'package.json'))
+//   );
 
 // Get the list of dependencies for all packages in the monorepo
 const modules = ['@expo/vector-icons']
