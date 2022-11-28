@@ -1,19 +1,20 @@
-import React from 'react';
 import {
-  Dimensions,
-  SafeAreaView,
-  type ScaledSize,
-  ScrollView,
-} from 'react-native';
-import {
-  createDrawerNavigator,
   type DrawerScreenProps,
+  createDrawerNavigator,
 } from '@react-navigation/drawer';
 import type { CompositeScreenProps } from '@react-navigation/native';
 import type { StackScreenProps } from '@react-navigation/stack';
+import React from 'react';
+import {
+  type ScaledSize,
+  Dimensions,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
 import { List, useTheme } from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { type RootStackParamList, PAGES, PAGE_NAMES } from '../pages';
+
+import { type RootStackParamList, PAGE_NAMES, PAGES } from '../pages';
 
 export type HomeDrawerParamList = {
   HomeDrawer: undefined;
@@ -58,9 +59,7 @@ export default function HomePage() {
           DrawerScreenProps<HomeDrawerParamList, 'HomeDrawer'>,
           StackScreenProps<RootStackParamList>
         >) => (
-          <ScrollView
-            style={{ backgroundColor: theme.colors.background }}
-          >
+          <ScrollView style={{ backgroundColor: theme.colors.background }}>
             <SafeAreaView>
               {PAGE_NAMES.map((name) => (
                 <List.Item
@@ -77,6 +76,5 @@ export default function HomePage() {
         )}
       </Drawer.Screen>
     </Drawer.Navigator>
-
   );
 }

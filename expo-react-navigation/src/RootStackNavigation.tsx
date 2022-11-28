@@ -4,8 +4,8 @@ import {
   useReduxDevToolsExtension,
 } from '@react-navigation/devtools';
 import {
-  DefaultTheme,
   DarkTheme,
+  DefaultTheme,
   InitialState,
   NavigationContainer,
   useNavigationContainerRef,
@@ -15,20 +15,19 @@ import {
   HeaderStyleInterpolators,
 } from '@react-navigation/stack';
 import * as React from 'react';
+import { Linking, LogBox, Platform, Text } from 'react-native';
 import {
-  Linking,
-  LogBox,
-  Platform,
-  Text,
-} from 'react-native';
-import {
-  MD3DarkTheme as PaperDarkTheme,
   DefaultTheme as PaperLightTheme,
-  Divider,
-  List,
+  MD3DarkTheme as PaperDarkTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
-import { type RootStackParamList, PAGES, PAGE_NAMES, linkingConfig } from './pages';
+
+import {
+  type RootStackParamList,
+  linkingConfig,
+  PAGE_NAMES,
+  PAGES,
+} from './pages';
 import HomePage from './pages/Home';
 import NotFound from './Screens/NotFound';
 

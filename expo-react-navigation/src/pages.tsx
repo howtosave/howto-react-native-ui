@@ -1,14 +1,14 @@
 import type { LinkingOptions, PathConfigMap } from '@react-navigation/native';
 import { createURL } from 'expo-linking';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 export function PageA() {
   return (
     <View>
       <Text>Page A</Text>
     </View>
-  )
+  );
 }
 
 export function PageB() {
@@ -16,7 +16,7 @@ export function PageB() {
     <View>
       <Text>Page B</Text>
     </View>
-  )
+  );
 }
 
 export const PAGES = {
@@ -42,7 +42,7 @@ export const linkingConfig: LinkingOptions<RootStackParamList> = {
   prefixes: [createURL('/')],
   config: {
     initialRouteName: 'Home',
-    screens:PAGE_NAMES.reduce<PathConfigMap<RootStackParamList>>(
+    screens: PAGE_NAMES.reduce<PathConfigMap<RootStackParamList>>(
       (acc, name) => {
         // Convert screen names such as SimpleStack to kebab case (simple-stack)
         const path = name
