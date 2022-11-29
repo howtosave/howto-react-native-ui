@@ -3,18 +3,14 @@ import { createURL } from 'expo-linking';
 import React from 'react';
 import { Text, View } from 'react-native';
 
+import StackedPage, {
+  linkingScreens as stackedLinkingScreens,
+} from './Stacked';
+
 export function PageA() {
   return (
     <View>
       <Text>Page A</Text>
-    </View>
-  );
-}
-
-export function PageB() {
-  return (
-    <View>
-      <Text>Page B</Text>
     </View>
   );
 }
@@ -31,14 +27,17 @@ export const PAGES = {
   PageA: {
     title: 'Page A',
     component: PageA,
+    screens: undefined,
   },
-  PageB: {
-    title: 'Page B',
-    component: PageB,
+  Stacked: {
+    title: 'Stacked',
+    component: StackedPage,
+    screens: stackedLinkingScreens,
   },
   Settings: {
     title: 'Settings',
     component: SettingsPage,
+    screens: undefined,
   },
 };
 
@@ -63,25 +62,7 @@ export const linkingConfig: LinkingOptions<RootDrawerParamList> = {
           .toLowerCase();
         acc[name] = {
           path,
-          screens: {
-            Article: {
-              path: 'article/:author?',
-              parse: {
-                author: (author: string) =>
-                  author.charAt(0).toUpperCase() +
-                  author.slice(1).replace(/-/g, ' '),
-              },
-              stringify: {
-                author: (author: string) =>
-                  author.toLowerCase().replace(/\s/g, '-'),
-              },
-            },
-            Albums: 'music',
-            Chat: 'chat',
-            Contacts: 'people',
-            NewsFeed: 'feed',
-            Dialog: 'dialog',
-          },
+          ...(PAGES[name].screens ? { screens: PAGES[name].screens } : {}),
         };
         return acc;
       },

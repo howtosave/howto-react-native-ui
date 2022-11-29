@@ -1,7 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import React, { memo } from 'react';
 import {
-  Image,
   Platform,
   StatusBar,
   StyleSheet,

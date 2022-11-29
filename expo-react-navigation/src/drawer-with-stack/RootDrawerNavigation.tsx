@@ -3,10 +3,14 @@ import {
   useFlipper,
   useReduxDevToolsExtension,
 } from '@react-navigation/devtools';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+} from '@react-navigation/drawer';
 import {
   DarkTheme,
   DefaultTheme,
+  DrawerActions,
   InitialState,
   NavigationContainer,
   useNavigationContainerRef,
@@ -18,19 +22,24 @@ import {
   Linking,
   LogBox,
   Platform,
+  SafeAreaView,
+  ScrollView,
   Text,
 } from 'react-native';
 import {
   Appbar,
+  Button,
   DefaultTheme as PaperLightTheme,
+  Divider,
   MD3DarkTheme as PaperDarkTheme,
   Provider as PaperProvider,
+  useTheme,
 } from 'react-native-paper';
 
 import NotFound from '../Screens/NotFound';
-import DrawerToggleButton from './DrawerToggleButton';
 import HomePage from './Home';
 import LandingPage from './Landing';
+import NaviHeaderLeftButton from './NaviHeaderLeftButton';
 import {
   type RootDrawerParamList,
   linkingConfig,
@@ -117,6 +126,59 @@ export default function RootStackNavigation() {
     return null;
   }
 
+  //
+  // drawer menu content
+  function HomeDrawerContent({ navigation }: DrawerContentComponentProps) {
+    const { colors } = useTheme();
+
+    function closeDrawer() {
+      navigation.dispatch(DrawerActions.closeDrawer());
+      // navigation.closeDrawer();
+    }
+
+    return (
+      <>
+        <Appbar.Header
+          style={{ backgroundColor: colors.surface, elevation: 1 }}
+        >
+          <Appbar.Action icon="account" style={{}} />
+          <Appbar.Content title="user name" />
+          {!isLargeScreen && (
+            <Appbar.Action icon="close" onPress={() => closeDrawer()} />
+          )}
+        </Appbar.Header>
+
+        <ScrollView style={{ backgroundColor: theme.colors.background }}>
+          <SafeAreaView>
+            <>
+              <Button
+                onPress={() => {
+                  closeDrawer();
+                  navigation.navigate('Settings');
+                }}
+                style={{ margin: 8 }}
+              >
+                Settings
+              </Button>
+              <Divider />
+              <Button
+                onPress={() => {
+                  closeDrawer();
+                  navigation.navigate('Stacked');
+                }}
+                style={{ margin: 8 }}
+              >
+                Stacked
+              </Button>
+              <Divider />
+            </>
+          </SafeAreaView>
+        </ScrollView>
+        {/* <DrawerContent {...props} /> */}
+      </>
+    );
+  }
+
   function onSettingsIconPress() {}
 
   return (
@@ -140,11 +202,18 @@ export default function RootStackNavigation() {
       >
         <Drawer.Navigator
           useLegacyImplementation
+          drawerContent={(props) => <HomeDrawerContent {...props} />}
           screenOptions={{
             drawerType: isLargeScreen ? 'permanent' : undefined,
-            headerLeft: (props) => <DrawerToggleButton {...props} />,
+            headerLeft: (props) => (
+              <NaviHeaderLeftButton
+                icon="menu"
+                action="toggle-drawer"
+                {...props}
+              />
+            ),
             headerStyle: {
-              height: 50,
+              height: 64,
             },
           }}
           initialRouteName="Landing"

@@ -1,4 +1,4 @@
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import type { DrawerNavigationProp } from '@react-navigation/drawer';
 import { PlatformPressable } from '@react-navigation/elements';
 import {
@@ -10,13 +10,20 @@ import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 
 type Props = {
+  icon: React.ComponentProps<typeof Ionicons>['name'];
+  action: 'goback' | 'toggle-drawer';
   accessibilityLabel?: string;
   pressColor?: string;
   pressOpacity?: number;
   tintColor?: string;
 };
 
-export default function DrawerToggleButton({ tintColor, ...rest }: Props) {
+export default function NaviHeaderLeftButton({
+  icon,
+  action,
+  tintColor,
+  ...rest
+}: Props) {
   const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>();
 
   return (
@@ -25,15 +32,19 @@ export default function DrawerToggleButton({ tintColor, ...rest }: Props) {
       accessible
       accessibilityRole="button"
       android_ripple={{ borderless: true }}
-      onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+      onPress={() =>
+        action === 'goback'
+          ? navigation.goBack()
+          : navigation.dispatch(DrawerActions.toggleDrawer())
+      }
       style={styles.touchable}
       hitSlop={Platform.select({
         ios: undefined,
         default: { top: 16, right: 16, bottom: 16, left: 16 },
       })}
     >
-      <AntDesign
-        name="menu-fold"
+      <Ionicons
+        name={icon}
         size={24}
         style={[styles.icon, tintColor ? { color: tintColor } : null]}
       />
