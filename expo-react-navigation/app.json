@@ -27,16 +27,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },    "updates": {
+    },
+    "updates": {
+      "enabled": true,
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "scheme": "rne",
-    "entryPoint": "App.tsx",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    }
+    "sdkVersion": "47.0.0",
+    "runtimeVersion": "exposdk:47.0.0"
   }
 }

@@ -14,7 +14,7 @@ import {
 import { List, useTheme } from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import { type RootStackParamList, PAGE_NAMES, PAGES } from '../pages';
+import { type RootStackParamList, PAGE_NAMES, PAGES } from './pages';
 
 export type HomeDrawerParamList = {
   HomeDrawer: undefined;

@@ -22,14 +22,14 @@ import {
   Provider as PaperProvider,
 } from 'react-native-paper';
 
+import NotFound from '../Screens/NotFound';
+import HomePage from './Home';
 import {
   type RootStackParamList,
   linkingConfig,
   PAGE_NAMES,
   PAGES,
 } from './pages';
-import HomePage from './pages/Home';
-import NotFound from './Screens/NotFound';
 
 if (Platform.OS !== 'web') {
   LogBox.ignoreLogs(['Require cycle:']);
@@ -66,7 +66,9 @@ export default function RootStackNavigation() {
         try {
           const themeName = await AsyncStorage?.getItem(THEME_PERSISTENCE_KEY);
           setTheme(themeName === 'dark' ? DarkTheme : DefaultTheme);
-        } catch (e) {}
+        } catch (e) {
+          /* ignore */
+        }
 
         setIsReady(true);
       }
