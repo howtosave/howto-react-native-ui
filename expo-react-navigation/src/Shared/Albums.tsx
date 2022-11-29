@@ -48,9 +48,9 @@ export default function Albums(props: Partial<ScrollViewProps>) {
       setDimensions(window);
     };
 
-    Dimensions.addEventListener('change', onDimensionsChange);
+    const dimSub = Dimensions.addEventListener('change', onDimensionsChange);
 
-    return () => Dimensions.removeEventListener('change', onDimensionsChange);
+    return () => dimSub.remove();
   }, []);
 
   const ref = React.useRef<ScrollView>(null);

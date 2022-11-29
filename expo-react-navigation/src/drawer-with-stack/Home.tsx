@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import type { DrawerScreenProps } from '@react-navigation/drawer';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { Dimensions, ScaledSize, StyleSheet } from 'react-native';
+import { Appbar, useTheme } from 'react-native-paper';
 import {
   NavigationState,
   SceneMap,
@@ -11,6 +11,9 @@ import {
   TabView,
 } from 'react-native-tab-view';
 
+import Albums from '../Shared/Albums';
+import Article from '../Shared/Article';
+import NewsFeed from '../Shared/NewsFeed';
 import type { RootDrawerParamList } from './pages';
 
 type Route = {
@@ -21,27 +24,61 @@ type Route = {
 
 type State = NavigationState<Route>;
 
+const useIsLargeScreen = () => {
+  const [dimensions, setDimensions] = React.useState(Dimensions.get('window'));
+
+  React.useEffect(() => {
+    const onDimensionsChange = ({ window }: { window: ScaledSize }) => {
+      setDimensions(window);
+    };
+
+    const dimSub = Dimensions.addEventListener('change', onDimensionsChange);
+
+    return () => dimSub.remove();
+  }, []);
+
+  return dimensions.width > 414;
+};
+
+const Header = ({
+  onGoBack,
+  title,
+}: {
+  onGoBack?: () => void;
+  title: string;
+}) => {
+  const { colors } = useTheme();
+  const isLargeScreen = useIsLargeScreen();
+
+  return (
+    <Appbar.Header style={{ backgroundColor: colors.card, elevation: 1 }}>
+      {isLargeScreen ? null : <Appbar.BackAction onPress={onGoBack} />}
+      <Appbar.Content title={title} />
+    </Appbar.Header>
+  );
+};
+
 export function HomeA() {
   return (
-    <View>
-      <Text>Home A</Text>
-    </View>
+    <>
+      <Article />
+    </>
   );
 }
 
 export function HomeB() {
   return (
-    <View>
-      <Text>Home B</Text>
-    </View>
+    <>
+      <NewsFeed />
+    </>
   );
 }
 
 export function HomeC() {
   return (
-    <View>
-      <Text>Home C</Text>
-    </View>
+    <>
+      <Albums />
+    </>
   );
 }
 
@@ -105,6 +142,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   indicator: {
-    height: 5,
+    height: 3,
   },
 });
