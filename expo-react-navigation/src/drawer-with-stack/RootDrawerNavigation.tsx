@@ -150,28 +150,36 @@ export default function RootStackNavigation() {
 
         <ScrollView style={{ backgroundColor: theme.colors.background }}>
           <SafeAreaView>
-            <>
-              <Button
-                onPress={() => {
-                  closeDrawer();
-                  navigation.navigate('Settings');
-                }}
-                style={{ margin: 8 }}
-              >
-                Settings
-              </Button>
-              <Divider />
-              <Button
-                onPress={() => {
-                  closeDrawer();
-                  navigation.navigate('Stacked');
-                }}
-                style={{ margin: 8 }}
-              >
-                Stacked
-              </Button>
-              <Divider />
-            </>
+            <Button
+              onPress={() => {
+                closeDrawer();
+                navigation.navigate('Settings');
+              }}
+              style={{ margin: 8 }}
+            >
+              Settings
+            </Button>
+            <Divider />
+            <Button
+              onPress={() => {
+                closeDrawer();
+                navigation.navigate('Tabbed');
+              }}
+              style={{ margin: 8 }}
+            >
+              Tabbed
+            </Button>
+            <Divider />
+            <Button
+              onPress={() => {
+                closeDrawer();
+                navigation.navigate('Stacked');
+              }}
+              style={{ margin: 8 }}
+            >
+              Stacked
+            </Button>
+            <Divider />
           </SafeAreaView>
         </ScrollView>
         {/* <DrawerContent {...props} /> */}
@@ -201,7 +209,6 @@ export default function RootStackNavigation() {
         }}
       >
         <Drawer.Navigator
-          useLegacyImplementation
           drawerContent={(props) => <HomeDrawerContent {...props} />}
           screenOptions={{
             drawerType: isLargeScreen ? 'permanent' : undefined,

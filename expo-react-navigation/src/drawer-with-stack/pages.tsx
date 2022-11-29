@@ -6,6 +6,7 @@ import { Text, View } from 'react-native';
 import StackedPage, {
   linkingScreens as stackedLinkingScreens,
 } from './Stacked';
+import TabbedPage from './Tabbed';
 
 export function PageA() {
   return (
@@ -24,9 +25,9 @@ export function SettingsPage() {
 }
 
 export const PAGES = {
-  PageA: {
-    title: 'Page A',
-    component: PageA,
+  Tabbed: {
+    title: 'Tabbed',
+    component: TabbedPage,
     screens: undefined,
   },
   Stacked: {
@@ -67,11 +68,7 @@ export const linkingConfig: LinkingOptions<RootDrawerParamList> = {
         return acc;
       },
       {
-        Home: {
-          screens: {
-            HomeDrawer: '',
-          },
-        },
+        Home: '',
         Landing: 'landing',
         NotFound: '*',
       }

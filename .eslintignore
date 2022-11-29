@@ -8,4 +8,5 @@ web-report/
 .expo/
 .yarn/
 .vscode/
-packages/cu-api-request
+android/
+ios/
