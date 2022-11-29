@@ -6,7 +6,7 @@ import { Text, View } from 'react-native';
 import StackedPage, {
   linkingScreens as stackedLinkingScreens,
 } from './Stacked';
-import TabbedPage from './Tabbed';
+import TabbedPage, { TabName } from './Tabbed';
 
 export function PageA() {
   return (
@@ -29,20 +29,28 @@ export const PAGES = {
     title: 'Tabbed',
     component: TabbedPage,
     screens: undefined,
+    params: {
+      screen: 'TabbedA' as TabName,
+      param: undefined as any,
+    },
   },
   Stacked: {
     title: 'Stacked',
     component: StackedPage,
     screens: stackedLinkingScreens,
+    params: undefined,
   },
   Settings: {
     title: 'Settings',
     component: SettingsPage,
     screens: undefined,
+    params: undefined,
   },
 };
 
-export const PAGE_NAMES = Object.keys(PAGES) as (keyof typeof PAGES)[];
+type PagesType = typeof PAGES;
+
+export const PAGE_NAMES = Object.keys(PAGES) as (keyof PagesType)[];
 
 export const linkingConfig: LinkingOptions<RootDrawerParamList> = {
   // To test deep linking on, run the following in the Terminal:
@@ -83,7 +91,7 @@ type ParamListTypes = {
 };
 
 export type RootDrawerParamList = {
-  [P in keyof typeof PAGES]: undefined;
+  [P in keyof PagesType]: PagesType[P]['params'];
 } & ParamListTypes;
 
 // Make the default RootParamList the same as the RootStackParamList

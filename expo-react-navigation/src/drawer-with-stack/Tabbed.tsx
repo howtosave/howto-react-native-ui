@@ -48,15 +48,25 @@ export function TabbedC() {
   );
 }
 
+const _tabRoutes: Route[] = [
+  { key: 'TabbedA', icon: 'md-chatbubbles', title: 'A' },
+  { key: 'TabbedB', icon: 'md-people', title: 'B' },
+  { key: 'TabbedC', icon: 'md-list', title: 'C' },
+];
+
+export type TabName = typeof _tabRoutes[number]['key'];
+
 export default function TabbedPage({
   navigation: _navigation,
+  route,
 }: DrawerScreenProps<RootDrawerParamList>) {
-  const [index, onIndexChange] = React.useState(0);
-  const [routes] = React.useState<Route[]>([
-    { key: 'TabbedA', icon: 'md-chatbubbles', title: 'A' },
-    { key: 'TabbedB', icon: 'md-people', title: 'B' },
-    { key: 'TabbedC', icon: 'md-list', title: 'C' },
-  ]);
+  const { params } = route;
+  const idx = params?.screen
+    ? _tabRoutes.findIndex((e) => e.key === params.screen)
+    : 0;
+
+  const [index, onIndexChange] = React.useState(idx);
+  const [tabRoutes] = React.useState(_tabRoutes);
   const theme = useTheme();
 
   const renderIcon = ({ route, color }: { route: Route; color: string }) => (
@@ -90,7 +100,7 @@ export default function TabbedPage({
       lazy={false}
       navigationState={{
         index,
-        routes,
+        routes: tabRoutes,
       }}
       renderScene={renderScene}
       renderTabBar={renderTabBar}

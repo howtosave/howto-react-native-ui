@@ -14,7 +14,16 @@ export default function HomePage({
       <Button onPress={() => navigation.navigate('Stacked')}>
         goto Stacked
       </Button>
-      <Button onPress={() => navigation.navigate('Tabbed')}>goto Tabbed</Button>
+      <Button
+        onPress={() =>
+          navigation.navigate('Tabbed', {
+            screen: 'TabbedB',
+            param: {},
+          })
+        }
+      >
+        goto TabbedB in Tabbed
+      </Button>
 
       <Contacts />
     </View>
