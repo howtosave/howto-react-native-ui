@@ -28,9 +28,9 @@ import {
 } from 'react-native-paper';
 
 import NotFound from '../Screens/NotFound';
+import DrawerToggleButton from './DrawerToggleButton';
 import HomePage from './Home';
 import LandingPage from './Landing';
-
 import {
   type RootDrawerParamList,
   linkingConfig,
@@ -139,8 +139,13 @@ export default function RootStackNavigation() {
         }}
       >
         <Drawer.Navigator
+          useLegacyImplementation
           screenOptions={{
             drawerType: isLargeScreen ? 'permanent' : undefined,
+            headerLeft: (props) => <DrawerToggleButton {...props} />,
+            headerStyle: {
+              height: 50,
+            },
           }}
           initialRouteName="Landing"
         >
@@ -160,9 +165,11 @@ export default function RootStackNavigation() {
           <Drawer.Screen
             name="Landing"
             component={LandingPage}
-            options={{
-              // headerShown: false,
-            }}
+            options={
+              {
+                // headerShown: false,
+              }
+            }
           />
           <Drawer.Screen
             name="NotFound"
