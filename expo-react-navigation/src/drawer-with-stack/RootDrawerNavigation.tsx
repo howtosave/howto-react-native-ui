@@ -56,7 +56,7 @@ const Drawer = createDrawerNavigator<RootDrawerParamList>();
 const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const THEME_PERSISTENCE_KEY = 'THEME_TYPE';
 
-export default function RootStackNavigation() {
+export default function RootDrawerNavigation() {
   const [theme, setTheme] = React.useState(DefaultTheme);
   const [isReady, setIsReady] = React.useState(Platform.OS === 'web');
   const [initialState, setInitialState] = React.useState<

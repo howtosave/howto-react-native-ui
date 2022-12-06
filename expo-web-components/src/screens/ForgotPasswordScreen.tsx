@@ -1,24 +1,30 @@
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { memo, useState } from 'react';
+/* eslint-disable import/no-commonjs */
+import type { NavigationProp } from '@react-navigation/native';
+import React, { useState } from 'react';
 import { Platform, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 import {
-  BackButton,
   Background,
   Button,
   Header,
   Layout,
   Logo,
-  Paragraph,
   TextInput,
 } from '../components/Basic';
 import { emailValidator } from '../libs/input-validator';
-import { theme } from '../theme';
 
-type Props = NativeStackScreenProps<MainStackParamList, 'ForgotPassword'>;
+const backgroundDot = require('./assets/background_dot.png');
+const logo = require('./assets/logo.png');
 
-const ForgotPasswordScreen = ({ navigation }: Props) => {
+type Props = {
+  onSendPressed: (email: string) => void;
+  navigation: NavigationProp<any>;
+};
+
+export default ({ onSendPressed, navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
+  const theme = useTheme();
 
   const _onSendPressed = () => {
     const emailError = emailValidator(email.value);
@@ -28,13 +34,13 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
       return;
     }
 
-    navigation.navigate('Login');
+    onSendPressed(email.value);
   };
 
   return (
-    <Background source={require('./assets/background_dot.png')}>
+    <Background source={backgroundDot}>
       <Layout style={styles.container} navigation={navigation}>
-        <Logo source={require('./assets/logo.png')} />
+        <Logo source={logo} />
 
         <Header>Restore Password</Header>
 
@@ -60,7 +66,9 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
           style={styles.back}
           onPress={() => navigation.navigate('Login')}
         >
-          <Text style={styles.label}>← Back to login</Text>
+          <Text style={[styles.label, { color: theme.colors.secondary }]}>
+            ← Back to login
+          </Text>
         </TouchableOpacity>
       </Layout>
     </Background>
@@ -88,7 +96,6 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   label: {
-    color: theme.colors.secondary,
     width: '60%',
   },
   back: {
@@ -96,5 +103,3 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
 });
-
-export default memo(ForgotPasswordScreen);

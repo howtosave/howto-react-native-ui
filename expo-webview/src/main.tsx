@@ -56,7 +56,7 @@ const Main = () => {
           />
         ))}
       </Stack.Navigator>
-      <StatusBar style="auto" />
+      <StatusBar />
     </NavigationContainer>
   );
 };

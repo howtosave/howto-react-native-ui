@@ -1,5 +1,6 @@
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { memo, useState } from 'react';
+/* eslint-disable import/no-commonjs */
+import type { NavigationProp } from '@react-navigation/native';
+import React, { useState } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -7,9 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 import {
-  BackButton,
   Background,
   Button,
   Header,
@@ -22,14 +23,20 @@ import {
   nameValidator,
   passwordValidator,
 } from '../libs/input-validator';
-import { theme } from '../theme';
 
-type Props = NativeStackScreenProps<MainStackParamList, 'Register'>;
+type Props = {
+  onSignUpPressed: (name: string, email: string, password: string) => void;
+  navigation: NavigationProp<any>;
+};
 
-const RegisterScreen = ({ navigation }: Props) => {
+const backgroundDot = require('./assets/background_dot.png');
+const logo = require('./assets/logo.png');
+
+export default ({ navigation, onSignUpPressed }: Props) => {
   const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
+  const theme = useTheme();
 
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
@@ -43,17 +50,17 @@ const RegisterScreen = ({ navigation }: Props) => {
       return;
     }
 
-    navigation.navigate('Dashboard');
+    onSignUpPressed(name.value, email.value, password.value);
   };
 
   return (
-    <Background source={require('./assets/background_dot.png')}>
+    <Background source={backgroundDot}>
       <Layout
         style={styles.container}
         navigation={navigation}
         withKeyboardAvoidingView
       >
-        <Logo source={require('./assets/logo.png')} />
+        <Logo source={logo} />
 
         <Header>Create Account</Header>
 
@@ -101,9 +108,13 @@ const RegisterScreen = ({ navigation }: Props) => {
         </Button>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Already have an account? </Text>
+          <Text style={[styles.label, { color: theme.colors.secondary }]}>
+            Already have an account?{' '}
+          </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.link}>Login</Text>
+            <Text style={[styles.link, { color: theme.colors.secondary }]}>
+              Login
+            </Text>
           </TouchableOpacity>
         </View>
       </Layout>
@@ -128,7 +139,7 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   label: {
-    color: theme.colors.secondary,
+    fontSize: 20,
   },
   button: {
     marginTop: 24,
@@ -140,8 +151,5 @@ const styles = StyleSheet.create({
   },
   link: {
     fontWeight: 'bold',
-    color: theme.colors.primary,
   },
 });
-
-export default memo(RegisterScreen);

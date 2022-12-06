@@ -52,11 +52,11 @@ const _html = `
 `;
 
 export default function WebViewScreen() {
-  const refWebView = React.useRef<WebView>();
+  const refWebView = React.useRef<WebView>(null);
 
   setTimeout(() => {
     const run = `document.body.style.backgroundColor = 'blue';`;
-    refWebView.current && refWebView.current.injectJavaScript(run);
+    refWebView.current?.injectJavaScript(run);
   }, 3000);
 
   return (

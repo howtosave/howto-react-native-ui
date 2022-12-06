@@ -1,21 +1,19 @@
-import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { NavigationProp } from '@react-navigation/native';
 import React from 'react';
 import type { ScrollViewProps, ViewProps } from 'react-native';
 import {
   KeyboardAvoidingView,
-  Platform,
+  // Platform,
   ScrollView,
   StyleSheet,
   View,
 } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
+// const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 interface LayoutProps extends ViewProps, ScrollViewProps {
-  navigation: NativeStackNavigationProp<any> | BottomTabNavigationProp<any>;
+  navigation: NavigationProp<any>;
   withScrollView?: boolean;
   withKeyboardAvoidingView?: boolean;
 }
@@ -23,12 +21,10 @@ interface LayoutProps extends ViewProps, ScrollViewProps {
 export default function Layout({
   withScrollView,
   withKeyboardAvoidingView,
-  navigation,
   style,
   children,
   ...rest
 }: LayoutProps) {
-  const theme = useTheme();
   const insets = useSafeAreaInsets();
 
   const containerStyles = [
